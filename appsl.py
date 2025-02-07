@@ -23,6 +23,9 @@ class_labels = {
     8: 'Medicol',
     9: 'Neozep'
 }
+# Sidebar navigation (without affecting the main classification model)
+st.sidebar.title("Navigation")
+page = st.sidebar.radio("Go to", ["Homepage", "Model 1", "Model 2", "Model 3"])
 
 # Streamlit UI
 st.title("Medicine Image Classifier")
@@ -56,3 +59,16 @@ if uploaded_file is not None:
         st.success("✅ Prediction is correct!")
     else:
         st.error("❌ Prediction is incorrect.")
+
+# Sidebar pages (won't affect the main classification model)
+if page == "Homepage":
+    st.sidebar.write("Welcome to the Image Classifier!")
+
+elif page == "Model 1":
+    st.sidebar.write("Model 1 description goes here.")
+
+elif page == "Model 2":
+    st.sidebar.write("Model 2 description goes here.")
+
+elif page == "Model 3":
+    st.sidebar.write("Model 3 description goes here."
