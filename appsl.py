@@ -58,7 +58,7 @@ elif page == "Image Classifier":
         confidence = np.max(prediction)  # Get confidence score
 
         # Show results
-        st.subheader("Prediction Result")
+        st.subheader("Image Classification Prediction Result")
         st.write(f"### **Actual Class:** {actual_class}")
         st.write(f"### **Predicted Class:** {class_labels[predicted_class]}")
         st.write(f"### **Confidence:** {confidence:.2f}")
