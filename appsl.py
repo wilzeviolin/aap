@@ -25,7 +25,7 @@ st.sidebar.title("Navigation")
 page = st.sidebar.radio("Go to", ["Homepage", "Model 1", "Model 2", "Model 3"])
 
 # Main Content (Image Classifier stays on the main screen)
-st.title("Image Classifier")
+st.title("Medicine Image Classifier")
 st.write("Upload an image to classify.")
 
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
