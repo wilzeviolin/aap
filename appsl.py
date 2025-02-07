@@ -2,6 +2,7 @@ import streamlit as st
 import tensorflow as tf
 import numpy as np
 from PIL import Image
+import os 
 
 # Load the saved model
 model = tf.keras.models.load_model("finetune_mobilenetv2_new.h5")
@@ -31,8 +32,12 @@ st.write("Upload an image to classify.")
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
 
 if uploaded_file is not None:
+    # Extract actual class from file path
+    file_name = uploaded_file.name  # Example: "classX/image123.jpg"
+    actual_class = os.path.basename(os.path.dirname(file_name))  # Extracts "classX"
+
     image = Image.open(uploaded_file)
-    st.image(image, caption="Uploaded Image", width=500)  # Smaller image display
+    st.image(image, caption="Uploaded Image", width=500)  # Display image
 
     # Preprocess image
     image = image.resize((224, 224))
@@ -46,7 +51,8 @@ if uploaded_file is not None:
 
     # Display results
     st.subheader("Prediction Result")
-    st.write(f"**Class:** {class_labels[predicted_class]}")
+    st.write(f"**Actual Class:** {actual_class}")  # Display actual class
+    st.write(f"**Predicted Class:** {class_labels[predicted_class]}")
     st.write(f"**Confidence:** {confidence:.2f}")
 
 # Sidebar pages (won't affect the main classification model)
