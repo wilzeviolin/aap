@@ -3,12 +3,8 @@ import tensorflow as tf
 import numpy as np
 from PIL import Image
 
-# Load the model
-@st.cache_resource
-def load_model():
-    return tf.keras.models.load_model("finetune_mobilenetv2_new.h5")
-
-model = load_model()
+# Load the saved model
+model = tf.keras.models.load_model("finetune_mobilenetv2_new.h5")
 
 # Define class labels
 class_labels = {
@@ -24,16 +20,21 @@ class_labels = {
     9: 'Neozep'
 }
 
-# Streamlit UI
-st.title("Medicine Image Classifier")
+# Sidebar navigation (without affecting the main classification model)
+st.sidebar.title("Navigation")
+page = st.sidebar.radio("Go to", ["Homepage", "Model 1", "Model 2", "Model 3"])
 
-uploaded_file = st.file_uploader("Upload an Image", type=["jpg", "png", "jpeg"])
+# Main Content (Image Classifier stays on the main screen)
+st.title("Image Classifier")
+st.write("Upload an image to classify.")
+
+uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
 
 if uploaded_file is not None:
-    image = Image.open(uploaded_file).convert('RGB')
-    st.image(image, caption="Uploaded Image", use_column_width=True)
+    image = Image.open(uploaded_file)
+    st.image(image, caption="Uploaded Image", width=300)  # Smaller image display
 
-    # Preprocess the image
+    # Preprocess image
     image = image.resize((224, 224))
     image = np.array(image) / 255.0  # Normalize
     image = np.expand_dims(image, axis=0)
@@ -41,8 +42,22 @@ if uploaded_file is not None:
     # Make prediction
     prediction = model.predict(image)
     predicted_class = np.argmax(prediction)
-    confidence = np.max(prediction)  # Get confidence score
+    confidence = np.max(prediction)
 
-    # Show results
-    st.write(f"### Predicted Class: {class_labels[predicted_class]}")
-    st.write(f"### Confidence: {confidence:.2f}")
+    # Display results
+    st.subheader("Prediction Result")
+    st.write(f"**Class:** {class_labels[predicted_class]}")
+    st.write(f"**Confidence:** {confidence:.2f}")
+
+# Sidebar pages (won't affect the main classification model)
+if page == "Homepage":
+    st.sidebar.write("Welcome to the Image Classifier!")
+
+elif page == "Model 1":
+    st.sidebar.write("Model 1 description goes here.")
+
+elif page == "Model 2":
+    st.sidebar.write("Model 2 description goes here.")
+
+elif page == "Model 3":
+    st.sidebar.write("Model 3 description goes here.")
