@@ -32,7 +32,7 @@ uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
-    st.image(image, caption="Uploaded Image", width=300)  # Smaller image display
+    st.image(image, caption="Uploaded Image", width=500)  # Smaller image display
 
     # Preprocess image
     image = image.resize((224, 224))
