@@ -92,7 +92,7 @@ elif st.session_state.page == "ImageClassifier":
     st.title("📸 Medicine Image Classifier")
     st.write("This page will be linked to your medicine image classification model.")
     # Link to image classifier app
-    st.write("[Go to Image Classification Model](med_imageClassification.py)")
+    st.write("[Go to Image Classification Model](https://medimageclassification.streamlit.app/#2a541927)")
 
 elif st.session_state.page == "OutpatientPrediction":
     st.title("📅 Outpatient Prediction")
