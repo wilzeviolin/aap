@@ -1,6 +1,6 @@
 import streamlit as st
 
-# Custom CSS for a nicer, cleaner navbar
+# Custom CSS for a cleaner navbar without the black shadow
 st.markdown("""
     <style>
         .navbar {
@@ -10,7 +10,6 @@ st.markdown("""
             background-color: #333;
             padding: 15px 0;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .navbar button {
             border: none;
@@ -39,7 +38,7 @@ with col1:
     st.markdown('<a href="https://your-disease-prediction-deployment-link.com" target="_blank"><button>🩺 Disease Prediction</button></a>', unsafe_allow_html=True)
 
 with col2:
-    st.markdown('<a href="https://medimageclassification.streamlit.app/" target="_blank"><button>📸 Medicine Image Classifier</button></a>', unsafe_allow_html=True)
+    st.markdown('<a href="https://your-image-classification-deployment-link.com" target="_blank"><button>📸 Medicine Image Classifier</button></a>', unsafe_allow_html=True)
 
 with col3:
     st.markdown('<a href="https://your-outpatient-prediction-deployment-link.com" target="_blank"><button>📅 Outpatient Prediction</button></a>', unsafe_allow_html=True)
@@ -62,15 +61,23 @@ With **increasing demand** for medical services and resources, AI offers new pos
 
 st.subheader("🔍 How AI is Transforming Healthcare in Singapore")
 
-# AI Applications
-st.image("diesease_prediction.jpeg", width=300)
-st.markdown("**1️⃣ Disease Prediction with AI** - AI models can analyze symptoms and predict diseases early. 👉 [Learn more](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7179009/)")
+# AI Applications in 2x2 Grid
+col1, col2 = st.columns(2)
 
-st.image("imgae_classification.jpg", width=300)
-st.markdown("**2️⃣ Medicine Image Classification** - AI-powered recognition helps classify medicines. 👉 [Read more](https://medimageclassification.streamlit.app/)")
+with col1:
+    st.image("diesease_prediction.jpeg", width=250)
+    st.markdown("**1️⃣ Disease Prediction with AI** - AI models can analyze symptoms and predict diseases early. 👉 [Learn more](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7179009/)")
 
-st.image("outpatient.jpeg", width=300)
-st.markdown("**3️⃣ Predicting Outpatient Attendance** - AI can forecast patient volume. 👉 [Explore AI in Healthcare](https://www.healthcareitnews.com/news/how-ai-can-improve-patient-flow-and-hospital-operations)")
+with col2:
+    st.image("imgae_classification.jpg", width=250)
+    st.markdown("**2️⃣ Medicine Image Classification** - AI-powered recognition helps classify medicines. 👉 [Read more](https://medimageclassification.streamlit.app/)")
 
-st.image("bed_occupancy.jpeg", width=300)
-st.markdown("**4️⃣ Bed Occupancy Prediction** - AI predicts hospital bed demand.  👉 [See AI's impact](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0266612)")
+col3, col4 = st.columns(2)
+
+with col3:
+    st.image("outpatient.jpeg", width=250)
+    st.markdown("**3️⃣ Predicting Outpatient Attendance** - AI can forecast patient volume. 👉 [Explore AI in Healthcare](https://www.healthcareitnews.com/news/how-ai-can-improve-patient-flow-and-hospital-operations)")
+
+with col4:
+    st.image("bed_occupancy.jpeg", width=250)
+    st.markdown("**4️⃣ Bed Occupancy Prediction** - AI predicts hospital bed demand.  👉 [See AI's impact](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0266612)")
