@@ -68,7 +68,7 @@ elif page == "📸 Image Classifier":
 
         # Show results
         st.subheader("🔍 Classification Result")
-        st.write(f"### **Actual Class (from filename):** {actual_class}")
+        st.write(f"### **Actual Class :** {actual_class}")
         st.write(f"### **Predicted Class:** {class_labels[predicted_class]}")
         st.write(f"### **Confidence:** {confidence:.2f}")
 
