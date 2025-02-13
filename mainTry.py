@@ -7,17 +7,17 @@ from PIL import Image
 if "page" not in st.session_state:
     st.session_state.page = "Homepage"
 
-# Custom CSS for navbar with nicer look
+# Custom CSS for a cleaner navbar design
 st.markdown("""
     <style>
         .navbar {
             display: flex;
             justify-content: center;
             gap: 20px;
-            background-color: #333;
+            background-color: #4CAF50;
             padding: 15px 0;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 50px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
         }
         .navbar button {
             border: none;
@@ -26,17 +26,16 @@ st.markdown("""
             font-weight: bold;
             color: white;
             padding: 12px 24px;
-            border-radius: 5px;
+            border-radius: 50px;
             cursor: pointer;
             transition: background 0.3s ease, transform 0.3s ease;
         }
         .navbar button:hover {
-            background-color: #4CAF50;
-            color: white;
+            background-color: #388E3C;
             transform: scale(1.05);
         }
         .navbar .active {
-            background-color: #4CAF50 !important;
+            background-color: #388E3C !important;
             color: white !important;
         }
     </style>
