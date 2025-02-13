@@ -49,7 +49,7 @@ if page == "Homepage":
     st.subheader("🔍 How AI is Transforming Healthcare in Singapore")
     
     # 1. Disease Prediction
-    st.image("disease_prediction.jpg", width=300)
+    st.image("disease_prediction.jpeg", width=300)
     st.markdown("""
     **1️⃣ Disease Prediction with AI**  
     AI models can analyze symptoms and predict possible diseases early, improving diagnostic efficiency.  
@@ -57,7 +57,7 @@ if page == "Homepage":
     """)
 
     # 2. Medicine Classification
-    st.image("medicine_classification.jpg", width=300)
+    st.image("image_classification.jpg", width=300)
     st.markdown("""
     **2️⃣ Medicine Image Classification**  
     AI-powered image recognition can help classify medicines, reducing errors in prescriptions and enhancing pharmaceutical management.  
@@ -65,7 +65,7 @@ if page == "Homepage":
     """)
 
     # 3. Outpatient Attendance Prediction
-    st.image("outpatient_prediction.jpg", width=300)
+    st.image("outpatient.jpeg", width=300)
     st.markdown("""
     **3️⃣ Predicting Outpatient Attendance**  
     AI can forecast patient volume at clinics and hospitals, allowing better staffing and resource allocation.  
@@ -73,7 +73,7 @@ if page == "Homepage":
     """)
 
     # 4. Bed Occupancy Prediction
-    st.image("bed_occupancy.jpg", width=300)
+    st.image("bed_occupancy.jpeg", width=300)
     st.markdown("""
     **4️⃣ Bed Occupancy Prediction**  
     AI can predict hospital bed demand, helping optimize patient flow and reducing waiting times.  
