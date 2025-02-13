@@ -53,3 +53,29 @@ elif page == "📅 Outpatient Prediction":
 
 elif page == "🛏️ Bed Occupancy Prediction":
     redirect("https://your-bed-occupancy-link")
+
+# Image Classifier (Default page)
+elif st.session_state.page == "📸 Image Classifier":
+    st.title("📸 Medicine Image Classifier")
+    st.write("Upload an image to classify.")
+
+    uploaded_file = st.file_uploader("Upload an Image", type=["jpg", "png", "jpeg"])
+
+    if uploaded_file is not None:
+        image = Image.open(uploaded_file).convert('RGB')
+        st.image(image, caption="Uploaded Image", use_column_width=True)
+
+        # Preprocess the image
+        image = image.resize((224, 224))
+        image = np.array(image) / 255.0  # Normalize
+        image = np.expand_dims(image, axis=0)
+
+        # Make prediction
+        prediction = model.predict(image)
+        predicted_class = np.argmax(prediction)
+        confidence = np.max(prediction)  # Get confidence score
+
+        # Show results
+        st.subheader("🔍 Classification Result")
+        st.write(f"### **Predicted Class:** {class_labels[predicted_class]}")
+        st.write(f"### **Confidence:** {confidence:.2f}")
