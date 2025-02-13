@@ -24,26 +24,26 @@ class_labels = {
     9: 'Neozep'
 }
 
-# Sidebar Navigation
+# Sidebar Navigation (Set Default to Image Classifier)
 st.sidebar.title("Navigation")
 
-# Add "Image Classifier" as the default page
+if "page" not in st.session_state:
+    st.session_state.page = "📸 Image Classifier"  # Default page
+
 page = st.sidebar.radio(
     "Go to", 
     ["🏠 Home", "📸 Image Classifier", "🩺 Disease Prediction", "📅 Outpatient Prediction", "🛏️ Bed Occupancy Prediction"],
-    index=1  # Default is "Image Classifier"
+    index=1  # Default to Image Classifier
 )
 
-# Redirect function using JavaScript
-def redirect(url):
-    st.markdown(f'<meta http-equiv="refresh" content="0; url={url}">', unsafe_allow_html=True)
+st.session_state.page = page  # Update session state
 
-# Navigation Logic (Redirect Instantly)
-if page == "🏠 Home":
-    redirect("https://maintrying.streamlit.app/")
+# Home (Redirects to your main Streamlit app)
+if st.session_state.page == "🏠 Home":
+    st.markdown("[Go to Main Page](https://maintrying.streamlit.app/)")
 
-elif page == "📸 Image Classifier":
-    # Image Classifier page content
+# Image Classifier (Default page)
+elif st.session_state.page == "📸 Image Classifier":
     st.title("📸 Medicine Image Classifier")
     st.write("Upload an image to classify.")
 
@@ -68,11 +68,15 @@ elif page == "📸 Image Classifier":
         st.write(f"### **Predicted Class:** {class_labels[predicted_class]}")
         st.write(f"### **Confidence:** {confidence:.2f}")
 
-elif page == "🩺 Disease Prediction":
-    redirect("https://your-disease-prediction-link")
+# Other Pages
+elif st.session_state.page == "🩺 Disease Prediction":
+    st.title("🩺 Disease Prediction")
+    st.write("[Go to Disease Prediction](https://your-disease-prediction-link)")
 
-elif page == "📅 Outpatient Prediction":
-    redirect("https://your-outpatient-prediction-link")
+elif st.session_state.page == "📅 Outpatient Prediction":
+    st.title("📅 Outpatient Prediction")
+    st.write("[Go to Outpatient Prediction](https://your-outpatient-prediction-link)")
 
-elif page == "🛏️ Bed Occupancy Prediction":
-    redirect("https://your-bed-occupancy-link")
+elif st.session_state.page == "🛏️ Bed Occupancy Prediction":
+    st.title("🛏️ Bed Occupancy Prediction")
+    st.write("[Go to Bed Occupancy Prediction](https://your-bed-occupancy-link)")
