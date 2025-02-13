@@ -31,9 +31,63 @@ page = st.sidebar.radio("Go to", ["Homepage", "Image Classifier"])
 
 # Homepage
 if page == "Homepage":
-    st.title("Welcome to the Medicine Image Classifier")
-    st.write("Navigate using the sidebar to classify images.")
+    st.title("🏥 AI in Healthcare: Optimizing Resources & Accessibility")
+    
+    # Introduction Section
+    st.image("healthcare_banner.jpg", use_column_width=True)
+    st.write("""
+    As Singapore’s healthcare system evolves, **leveraging cutting-edge technologies** becomes crucial to addressing emerging challenges. 
+    With **increasing demand** for medical services and resources, traditional approaches may no longer suffice.
+    
+    However, **Artificial Intelligence (AI)** offers new possibilities to enhance efficiency in hospitals, optimize healthcare resources, 
+    and improve accessibility. This leads us to our **problem statement**:
+    
+    > **“How can we leverage AI to optimize healthcare resources and improve accessibility for Singaporeans?”**
+    """)
 
+    # AI Applications Section
+    st.subheader("🔍 How AI is Transforming Healthcare in Singapore")
+    
+    # 1. Disease Prediction
+    st.image("disease_prediction.jpg", width=300)
+    st.markdown("""
+    **1️⃣ Disease Prediction with AI**  
+    AI models can analyze symptoms and predict possible diseases early, improving diagnostic efficiency.  
+    👉 [Learn more](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7179009/)
+    """)
+
+    # 2. Medicine Classification
+    st.image("medicine_classification.jpg", width=300)
+    st.markdown("""
+    **2️⃣ Medicine Image Classification**  
+    AI-powered image recognition can help classify medicines, reducing errors in prescriptions and enhancing pharmaceutical management.  
+    👉 [Read about AI in Pharma](https://www.frontiersin.org/articles/10.3389/fphar.2021.700569/full)
+    """)
+
+    # 3. Outpatient Attendance Prediction
+    st.image("outpatient_prediction.jpg", width=300)
+    st.markdown("""
+    **3️⃣ Predicting Outpatient Attendance**  
+    AI can forecast patient volume at clinics and hospitals, allowing better staffing and resource allocation.  
+    👉 [Explore AI in Healthcare Operations](https://www.healthcareitnews.com/news/how-ai-can-improve-patient-flow-and-hospital-operations)
+    """)
+
+    # 4. Bed Occupancy Prediction
+    st.image("bed_occupancy.jpg", width=300)
+    st.markdown("""
+    **4️⃣ Bed Occupancy Prediction**  
+    AI can predict hospital bed demand, helping optimize patient flow and reducing waiting times.  
+    👉 [See AI's impact on bed management](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0266612)
+    """)
+
+    # Conclusion
+    st.subheader("🚀 The Future of AI in Healthcare")
+    st.write("""
+    AI-driven healthcare solutions can lead to **more efficient hospitals, improved patient care, and better resource utilization**. 
+    With continuous advancements, AI will play a critical role in shaping **Singapore’s future healthcare landscape**.
+    
+    Navigate through the sidebar to explore different AI models in action! 💡
+    """)
 # Image Classifier
 elif page == "Image Classifier":
     st.title("Medicine Image Classifier")
