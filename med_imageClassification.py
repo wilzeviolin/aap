@@ -40,7 +40,8 @@ def redirect(url):
 
 # Navigation Logic (Redirect Instantly)
 if page == "🏠 Home":
-    redirect("https://maintrying.streamlit.app/")
+    st.markdown("[Go to Main Page](https://maintrying.streamlit.app/)")
+
 
 elif page == "📸 Image Classifier":
     # Image Classifier page content
