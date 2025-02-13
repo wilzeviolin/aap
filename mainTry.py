@@ -3,37 +3,39 @@ import tensorflow as tf
 import numpy as np
 from PIL import Image
 
-
 # Initialize session state for navigation
 if "page" not in st.session_state:
     st.session_state.page = "Homepage"
 
-# Custom CSS for navbar
+# Custom CSS for navbar with nicer look
 st.markdown("""
     <style>
         .navbar {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            background-color: #f5f5f5;
-            padding: 10px;
+            gap: 20px;
+            background-color: #333;
+            padding: 15px 0;
             border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .navbar button {
             border: none;
             background: none;
             font-size: 18px;
             font-weight: bold;
-            color: black;
-            padding: 10px 20px;
+            color: white;
+            padding: 12px 24px;
             border-radius: 5px;
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: background 0.3s ease, transform 0.3s ease;
         }
         .navbar button:hover {
-            background-color: #ddd;
+            background-color: #4CAF50;
+            color: white;
+            transform: scale(1.05);
         }
-        .active {
+        .navbar .active {
             background-color: #4CAF50 !important;
             color: white !important;
         }
@@ -42,15 +44,20 @@ st.markdown("""
 
 # Create navigation bar with buttons
 st.markdown('<div class="navbar">', unsafe_allow_html=True)
-col1, col2 = st.columns(2)
+col1, col2, col3, col4 = st.columns(4)
 
 with col1:
     if st.button("🏠 Home", key="home_button"):
         st.session_state.page = "Homepage"
-
 with col2:
     if st.button("📸 Image Classifier", key="classifier_button"):
         st.session_state.page = "ImageClassifier"
+with col3:
+    if st.button("🩺 Disease Prediction", key="disease_prediction_button"):
+        st.session_state.page = "DiseasePrediction"
+with col4:
+    if st.button("📅 Outpatient Prediction", key="outpatient_prediction_button"):
+        st.session_state.page = "OutpatientPrediction"
 
 st.markdown('</div>', unsafe_allow_html=True)
 
@@ -72,9 +79,8 @@ if st.session_state.page == "Homepage":
     st.image("diesease_prediction.jpeg", width=300)
     st.markdown("**1️⃣ Disease Prediction with AI** - AI models can analyze symptoms and predict diseases early. 👉 [Learn more](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7179009/)")
 
-
     st.image("imgae_classification.jpg", width=300)
-    st.markdown("**2️⃣ Medicine Image Classification** - AI-powered recognition helps classify medicines. 👉 [Read more](https://www.frontiersin.org/articles/10.3389/fphar.2021.700569/full)")
+    st.markdown("**2️⃣ Medicine Image Classification** - AI-powered recognition helps classify medicines. 👉 [Read more](https://medimageclassification.streamlit.app/)")
 
     st.image("outpatient.jpeg", width=300)
     st.markdown("**3️⃣ Predicting Outpatient Attendance** - AI can forecast patient volume. 👉 [Explore AI in Healthcare](https://www.healthcareitnews.com/news/how-ai-can-improve-patient-flow-and-hospital-operations)")
@@ -92,7 +98,7 @@ elif st.session_state.page == "ImageClassifier":
     st.title("📸 Medicine Image Classifier")
     st.write("This page will be linked to your medicine image classification model.")
     # Link to image classifier app
-    st.write("[Go to Image Classification Model](https://medimageclassification.streamlit.app/#2a541927)")
+    st.write("[Go to Image Classification Model](https://medimageclassification.streamlit.app/)")
 
 elif st.session_state.page == "OutpatientPrediction":
     st.title("📅 Outpatient Prediction")
