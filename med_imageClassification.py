@@ -42,7 +42,6 @@ def redirect(url):
 if page == "🏠 Home":
     st.markdown("[Go to Main Page](https://maintrying.streamlit.app/)")
 
-
 elif page == "📸 Image Classifier":
     # Image Classifier page content
     st.title("📸 Medicine Image Classifier")
@@ -81,3 +80,26 @@ elif page == "📅 Outpatient Prediction":
 
 elif page == "🛏️ Bed Occupancy Prediction":
     redirect("https://your-bed-occupancy-link")
+
+# Navigation Bar with direct links to deployment
+st.markdown('<div class="navbar">', unsafe_allow_html=True)
+
+# Home Link (using anchor tag)
+with st.expander("Home"):
+    st.markdown('<a href="https://maintrying.streamlit.app/" target="_blank"><button>🏠 Home</button></a>', unsafe_allow_html=True)
+
+# Other pages
+with st.columns(4):
+    with st.expander("Image Classifier"):
+        st.markdown('<a href="https://medimageclassification.streamlit.app/" target="_blank"><button>📸 Medicine Image Classifier</button></a>', unsafe_allow_html=True)
+
+    with st.expander("Disease Prediction"):
+        st.markdown('<a href="https://your-disease-prediction-deployment-link.com" target="_blank"><button>🩺 Disease Prediction</button></a>', unsafe_allow_html=True)
+
+    with st.expander("Outpatient Prediction"):
+        st.markdown('<a href="https://your-outpatient-prediction-deployment-link.com" target="_blank"><button>📅 Outpatient Prediction</button></a>', unsafe_allow_html=True)
+
+    with st.expander("Bed Occupancy Prediction"):
+        st.markdown('<a href="https://your-bed-occupancy-deployment-link.com" target="_blank"><button>🛏 Bed Occupancy Prediction</button></a>', unsafe_allow_html=True)
+
+st.markdown('</div>', unsafe_allow_html=True)
