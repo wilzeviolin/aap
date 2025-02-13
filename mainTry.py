@@ -1,6 +1,6 @@
 import streamlit as st
 
-# Custom CSS for buttons only (without navbar styling)
+# Custom CSS to display buttons in a single row
 st.markdown("""
     <style>
         .button-container {
@@ -8,6 +8,7 @@ st.markdown("""
             justify-content: center;
             gap: 20px;
             padding: 20px;
+            flex-wrap: wrap;
         }
         .button-container a button {
             font-size: 18px;
@@ -20,6 +21,7 @@ st.markdown("""
             transition: background 0.3s ease, transform 0.3s ease;
             text-align: center;
             border: none;
+            width: 220px;
         }
         .button-container a button:hover {
             background-color: #388E3C;
@@ -28,7 +30,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Create buttons linked to deployment pages
+# Create buttons in a single row
 st.markdown('<div class="button-container">', unsafe_allow_html=True)
 st.markdown('<a href="https://your-disease-prediction-deployment-link.com" target="_blank"><button>🩺 Disease Prediction</button></a>', unsafe_allow_html=True)
 st.markdown('<a href="https://your-image-classification-deployment-link.com" target="_blank"><button>📸 Medicine Image Classifier</button></a>', unsafe_allow_html=True)
@@ -53,19 +55,19 @@ st.subheader("🔍 How AI is Transforming Healthcare in Singapore")
 col1, col2 = st.columns(2)
 
 with col1:
-    st.image("diesease_prediction.jpeg", width=300)  # Set to 300px width for uniformity
+    st.image("diesease_prediction.jpeg", width=300)  # Uniform size
     st.markdown("**1️⃣ Disease Prediction with AI** - AI models can analyze symptoms and predict diseases early. 👉 [Learn more](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7179009/)")
 
 with col2:
-    st.image("imgae_classification.jpg", width=300)  # Set to 300px width for uniformity
+    st.image("imgae_classification.jpg", width=300)  # Uniform size
     st.markdown("**2️⃣ Medicine Image Classification** - AI-powered recognition helps classify medicines. 👉 [Read more](https://medimageclassification.streamlit.app/)")
 
 col3, col4 = st.columns(2)
 
 with col3:
-    st.image("outpatient.jpeg", width=300)  # Set to 300px width for uniformity
+    st.image("outpatient.jpeg", width=300)  # Uniform size
     st.markdown("**3️⃣ Predicting Outpatient Attendance** - AI can forecast patient volume. 👉 [Explore AI in Healthcare](https://www.healthcareitnews.com/news/how-ai-can-improve-patient-flow-and-hospital-operations)")
 
 with col4:
-    st.image("bed_occupancy.jpeg", width=300)  # Set to 300px width for uniformity
+    st.image("bed_occupancy.jpeg", width=300)  # Uniform size
     st.markdown("**4️⃣ Bed Occupancy Prediction** - AI predicts hospital bed demand.  👉 [See AI's impact](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0266612)")
