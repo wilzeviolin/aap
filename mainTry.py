@@ -71,20 +71,16 @@ if st.session_state.page == "Homepage":
     st.subheader("🔍 How AI is Transforming Healthcare in Singapore")
 
     st.image("disease_prediction.jpeg", width=300)
-    st.markdown("**1️⃣ Disease Prediction with AI** - AI models can analyze symptoms and predict diseases early.  
-    👉 [Learn more about disease prediction](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7179009/)")
+    st.markdown("**1️⃣ Disease Prediction with AI** - AI models can analyze symptoms and predict diseases early.  👉 [Learn more about disease prediction](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7179009/)")
 
     st.image("image_classification.jpg", width=300)
-    st.markdown("**2️⃣ Medicine Image Classification** - AI-powered recognition helps classify medicines.  
-    👉 [Learn more about image classification](https://www.frontiersin.org/articles/10.3389/fphar.2021.700569/full)")
+    st.markdown("**2️⃣ Medicine Image Classification** - AI-powered recognition helps classify medicines.  👉 [Learn more about image classification](https://www.frontiersin.org/articles/10.3389/fphar.2021.700569/full)")
 
     st.image("outpatient.jpeg", width=300)
-    st.markdown("**3️⃣ Predicting Outpatient Attendance** - AI can forecast patient volume.  
-    👉 [Learn more about outpatient prediction](https://www.healthcareitnews.com/news/how-ai-can-improve-patient-flow-and-hospital-operations)")
+    st.markdown("**3️⃣ Predicting Outpatient Attendance** - AI can forecast patient volume.  👉 [Learn more about outpatient prediction](https://www.healthcareitnews.com/news/how-ai-can-improve-patient-flow-and-hospital-operations)")
 
     st.image("bed_occupancy.jpeg", width=300)
-    st.markdown("**4️⃣ Bed Occupancy Prediction** - AI predicts hospital bed demand.  
-    👉 [See more about bed occupancy prediction](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0266612)")
+    st.markdown("**4️⃣ Bed Occupancy Prediction** - AI predicts hospital bed demand.  👉 [See more about bed occupancy prediction](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0266612)")
 
 elif st.session_state.page == "DiseasePrediction":
     st.title("🩺 Disease Prediction with AI")
