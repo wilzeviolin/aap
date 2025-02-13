@@ -25,9 +25,48 @@ class_labels = {
     9: 'Neozep'
 }
 
-# Sidebar navigation
-st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["Homepage", "Image Classifier"])
+# Custom CSS for navbar
+st.markdown("""
+    <style>
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .navbar a {
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+        }
+        .active {
+            background-color: #4CAF50;
+            color: white !important;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# Create navigation bar
+st.markdown("""
+    <div class="navbar">
+        <a href="?page=Homepage" {home_active}>🏠 Home</a>
+        <a href="?page=ImageClassifier" {classifier_active}>📸 Image Classifier</a>
+    </div>
+""".format(
+    home_active='class="active"' if st.query_params.get("page") == "Homepage" or st.query_params.get("page") is None else "",
+    classifier_active='class="active"' if st.query_params.get("page") == "ImageClassifier" else ""
+), unsafe_allow_html=True)
+
+# Get page from URL params (default to Homepage)
+page = st.query_params.get("page") or "Homepage"
 
 # Homepage
 if page == "Homepage":
@@ -57,7 +96,7 @@ if page == "Homepage":
     """)
 
     # 2. Medicine Classification
-    st.image("imgae_classification.jpg", width=300)
+    st.image("image_classification.jpg", width=300)
     st.markdown("""
     **2️⃣ Medicine Image Classification**  
     AI-powered image recognition can help classify medicines, reducing errors in prescriptions and enhancing pharmaceutical management.  
@@ -88,9 +127,10 @@ if page == "Homepage":
     
     Navigate through the sidebar to explore different AI models in action! 💡
     """)
+
 # Image Classifier
-elif page == "Image Classifier":
-    st.title("Medicine Image Classifier")
+elif page == "ImageClassifier":
+    st.title("📸 Medicine Image Classifier")
     st.write("Upload an image to classify.")
 
     uploaded_file = st.file_uploader("Upload an Image", type=["jpg", "png", "jpeg"])
