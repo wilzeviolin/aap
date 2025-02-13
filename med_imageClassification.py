@@ -24,58 +24,48 @@ class_labels = {
     9: 'Neozep'
 }
 
-# Initialize session state for page tracking
+# Set the default page to Image Classifier
 if "page" not in st.session_state:
-    st.session_state.page = "Homepage"
+    st.session_state.page = "📸 Image Classifier"
 
 # Sidebar Navigation
-st.sidebar.title("🔍 Navigation")
-page = st.sidebar.radio("Go to", ["Homepage", "Disease Prediction", "Outpatient Prediction", "Bed Occupancy Prediction", "Image Classifier"])
+st.sidebar.title("Navigation")
+page = st.sidebar.radio(
+    "Go to", 
+    ["🏠 Homepage", "📸 Image Classifier", "🩺 Disease Prediction", "📅 Outpatient Prediction", "🛏️ Bed Occupancy Prediction"]
+)
 
-st.markdown("<h1 style='text-align: center;'>Medicine Image Classifier</h1>", unsafe_allow_html=True)
-
-# Top navigation buttons
-col1, col2 = st.columns(2)
-
-with col1:
-    if st.button("🏠 Home"):
-        st.session_state.page = "Homepage"
-
-with col2:
-    if st.button("📸 Image Classifier"):
-        st.session_state.page = "Image Classifier"
-
-st.markdown("---")  # Divider
-
-# Update session state based on sidebar selection
+# Update session state based on navigation
 st.session_state.page = page
 
 # Homepage
-if st.session_state.page == "Homepage":
-    st.title("🏥 Welcome to the AI-Powered Healthcare System")
-    st.write("Use the buttons above or the sidebar to navigate.")
-    st.image("homepage_banner.jpg", use_column_width=True)
+if st.session_state.page == "🏠 Homepage":
+    st.title("🏥 AI in Healthcare")
+    st.image("healthcare_banner.jpg", use_column_width=True)
+    st.write("""
+    AI is revolutionizing healthcare by improving efficiency, optimizing resources, and enhancing accessibility.  
+    Explore how AI can transform Singapore's healthcare system.
+    """)
+    
+    # Display AI applications with images (2x2 layout)
+    col1, col2 = st.columns(2)
 
-# Disease Prediction Page
-elif st.session_state.page == "Disease Prediction":
-    st.title("🩺 Disease Prediction")
-    st.write("AI can analyze symptoms and predict potential diseases.")
-    st.write("[Go to Disease Prediction Model](https://your-disease-prediction-link)")
+    with col1:
+        st.image("disease_prediction.jpg", width=300)
+        st.markdown("**🩺 Disease Prediction** - AI predicts diseases from symptoms. 👉 [Learn more](https://your-disease-prediction-link)")
 
-# Outpatient Prediction Page
-elif st.session_state.page == "Outpatient Prediction":
-    st.title("📅 Outpatient Prediction")
-    st.write("Predict outpatient attendance trends with AI.")
-    st.write("[Go to Outpatient Prediction Model](https://your-outpatient-prediction-link)")
+        st.image("outpatient.jpg", width=300)
+        st.markdown("**📅 Outpatient Prediction** - AI forecasts patient attendance. 👉 [Explore](https://your-outpatient-prediction-link)")
 
-# Bed Occupancy Prediction Page
-elif st.session_state.page == "Bed Occupancy Prediction":
-    st.title("🛏️ Bed Occupancy Prediction")
-    st.write("Forecast hospital bed occupancy to optimize resources.")
-    st.write("[Go to Bed Occupancy Model](https://your-bed-occupancy-link)")
+    with col2:
+        st.image("image_classification.jpg", width=300)
+        st.markdown("**📸 Medicine Image Classifier** - AI identifies medicines. 👉 [Read more](https://your-medicine-image-link)")
 
-# Image Classifier Page
-elif st.session_state.page == "Image Classifier":
+        st.image("bed_occupancy.jpg", width=300)
+        st.markdown("**🛏️ Bed Occupancy Prediction** - AI predicts hospital bed demand. 👉 [See impact](https://your-bed-occupancy-link)")
+
+# Image Classifier (Default page when app starts)
+elif st.session_state.page == "📸 Image Classifier":
     st.title("📸 Medicine Image Classifier")
     st.write("Upload an image to classify.")
 
@@ -84,9 +74,6 @@ elif st.session_state.page == "Image Classifier":
     if uploaded_file is not None:
         image = Image.open(uploaded_file).convert('RGB')
         st.image(image, caption="Uploaded Image", use_column_width=True)
-
-        # Extract actual class from filename (assuming format: 'ClassName_#.jpg')
-        actual_class = uploaded_file.name.split("_")[0]  # Gets the first part before "_"
 
         # Preprocess the image
         image = image.resize((224, 224))
@@ -99,13 +86,19 @@ elif st.session_state.page == "Image Classifier":
         confidence = np.max(prediction)  # Get confidence score
 
         # Show results
-        st.subheader("🔍 Image Classification Prediction Result")
-        st.write(f"### **Actual Class:** {actual_class}")
+        st.subheader("🔍 Classification Result")
         st.write(f"### **Predicted Class:** {class_labels[predicted_class]}")
         st.write(f"### **Confidence:** {confidence:.2f}")
 
-        # Check if prediction is correct
-        if actual_class.lower() == class_labels[predicted_class].lower():
-            st.success("✅ Prediction is correct!")
-        else:
-            st.error("❌ Prediction is incorrect.")
+# Other Pages
+elif st.session_state.page == "🩺 Disease Prediction":
+    st.title("🩺 Disease Prediction")
+    st.write("[Go to Disease Prediction](https://your-disease-prediction-link)")
+
+elif st.session_state.page == "📅 Outpatient Prediction":
+    st.title("📅 Outpatient Prediction")
+    st.write("[Go to Outpatient Prediction](https://your-outpatient-prediction-link)")
+
+elif st.session_state.page == "🛏️ Bed Occupancy Prediction":
+    st.title("🛏️ Bed Occupancy Prediction")
+    st.write("[Go to Bed Occupancy Prediction](https://your-bed-occupancy-link)")
