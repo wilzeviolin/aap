@@ -8,26 +8,28 @@ if "current_page" not in st.session_state:
 def navigate(page):
     st.session_state.current_page = page
 
-# Custom CSS for styling the navbar
+# Custom CSS for a modern, sleek navbar
 st.markdown("""
     <style>
-        .navbar {
+        .navbar-container {
             display: flex;
             justify-content: center;
-            background-color: #4CAF50;
-            padding: 10px;
-            border-radius: 8px;
+            background-color: #2c3e50;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
-        .navbar button {
-            background: none;
-            border: none;
+        .navbar-button {
+            background-color: transparent;
             color: white;
             font-size: 18px;
             padding: 10px 20px;
+            border: none;
             cursor: pointer;
+            transition: 0.3s;
         }
-        .navbar button:hover {
-            background: rgba(255, 255, 255, 0.2);
+        .navbar-button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
             border-radius: 5px;
         }
         .selected {
@@ -38,7 +40,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Navbar
-st.markdown('<div class="navbar">', unsafe_allow_html=True)
+st.markdown('<div class="navbar-container">', unsafe_allow_html=True)
+
 col1, col2 = st.columns([1, 1])
 
 with col1:
