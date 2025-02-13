@@ -63,7 +63,7 @@ st.markdown('<div class="sub-header">🔍 How AI is Transforming Healthcare</div
 col1, col2 = st.columns(2)
 
 with col1:
-    st.image("disease_prediction.jpeg", use_column_width=True)
+    st.image("diesease_prediction.jpeg", use_column_width=True)
     st.markdown("""
     **1️⃣ Disease Prediction with AI**  
     AI models can analyze symptoms and predict possible diseases early, improving diagnostic efficiency.  
@@ -71,7 +71,7 @@ with col1:
     """, unsafe_allow_html=True)
 
 with col2:
-    st.image("image_classification.jpg", use_column_width=True)
+    st.image("imgae_classification.jpg", use_column_width=True)
     st.markdown("""
     **2️⃣ Medicine Image Classification**  
     AI-powered image recognition can help classify medicines, reducing prescription errors and enhancing pharmaceutical management.  
