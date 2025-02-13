@@ -38,7 +38,7 @@ with col1:
     st.markdown('<a href="https://your-disease-prediction-deployment-link.com" target="_blank"><button>🩺 Disease Prediction</button></a>', unsafe_allow_html=True)
 
 with col2:
-    st.markdown('<a href="https://your-image-classification-deployment-link.com" target="_blank"><button>📸 Medicine Image Classifier</button></a>', unsafe_allow_html=True)
+    st.markdown('<a href="https://medimageclassification.streamlit.app/" target="_blank"><button>📸 Medicine Image Classifier</button></a>', unsafe_allow_html=True)
 
 with col3:
     st.markdown('<a href="https://your-outpatient-prediction-deployment-link.com" target="_blank"><button>📅 Outpatient Prediction</button></a>', unsafe_allow_html=True)
