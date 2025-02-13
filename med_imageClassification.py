@@ -24,26 +24,66 @@ class_labels = {
     9: 'Neozep'
 }
 
-# Sidebar Navigation
-st.sidebar.title("Navigation")
+# Custom CSS for a cleaner navbar without the black shadow
+st.markdown("""
+    <style>
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            background-color: white;
+            padding: 15px 0;
+            border-radius: 10px;
+        }
+        .navbar button {
+            border: none;
+            background: none;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            text-align: center;
+        }
+        .navbar button:hover {
+            background-color: #388E3C;
+            transform: scale(1.05);
+        }
+    </style>
+""", unsafe_allow_html=True)
 
-# Add "Image Classifier" as the default page
+# Create navigation bar with direct links to deployment
+st.markdown('<div class="navbar">', unsafe_allow_html=True)
+col1, col2, col3, col4 = st.columns(4)
+
+with col1:
+    st.markdown('<a href="https://maintrying.streamlit.app/" target="_blank"><button>🏠 Home</button></a>', unsafe_allow_html=True)
+
+with col2:
+    st.markdown('<a href="https://your-disease-prediction-deployment-link.com" target="_blank"><button>🩺 Disease Prediction</button></a>', unsafe_allow_html=True)
+
+with col3:
+    st.markdown('<a href="https://your-outpatient-prediction-deployment-link.com" target="_blank"><button>📅 Outpatient Prediction</button></a>', unsafe_allow_html=True)
+
+with col4:
+    st.markdown('<a href="https://your-bed-occupancy-deployment-link.com" target="_blank"><button>🛏 Bed Occupancy Prediction</button></a>', unsafe_allow_html=True)
+
+st.markdown('</div>', unsafe_allow_html=True)
+
+# Default page content for Home Page
 page = st.sidebar.radio(
     "Go to", 
     ["🏠 Home", "📸 Image Classifier", "🩺 Disease Prediction", "📅 Outpatient Prediction", "🛏️ Bed Occupancy Prediction"],
-    index=1  # Default is "Image Classifier"
+    index=0  # Default is "Home"
 )
 
-# Redirect function using JavaScript
-def redirect(url):
-    st.markdown(f'<meta http-equiv="refresh" content="0; url={url}">', unsafe_allow_html=True)
-
-# Navigation Logic (Redirect Instantly)
 if page == "🏠 Home":
-    st.markdown("[Go to Main Page](https://maintrying.streamlit.app/)")
+    st.title("🏥 Welcome to AI Healthcare Solutions")
+    st.write("This is the homepage where we can showcase the latest AI innovations in healthcare.")
 
 elif page == "📸 Image Classifier":
-    # Image Classifier page content
     st.title("📸 Medicine Image Classifier")
     st.write("Upload an image to classify.")
 
@@ -51,10 +91,10 @@ elif page == "📸 Image Classifier":
 
     if uploaded_file is not None:
         image = Image.open(uploaded_file).convert('RGB')
-        st.image(image, caption="Uploaded Image", use_container_width=True)  # Updated parameter here
-
+        st.image(image, caption="Uploaded Image", use_container_width=True)
+        
         # Extract actual class from filename
-        actual_class = uploaded_file.name.split("_")[0] 
+        actual_class = uploaded_file.name.split("_")[0]
 
         # Preprocess the image
         image = image.resize((224, 224))
@@ -80,26 +120,3 @@ elif page == "📅 Outpatient Prediction":
 
 elif page == "🛏️ Bed Occupancy Prediction":
     redirect("https://your-bed-occupancy-link")
-
-# Navigation Bar with direct links to deployment
-st.markdown('<div class="navbar">', unsafe_allow_html=True)
-
-# Home Link (using anchor tag)
-with st.expander("Home"):
-    st.markdown('<a href="https://maintrying.streamlit.app/" target="_blank"><button>🏠 Home</button></a>', unsafe_allow_html=True)
-
-# Other pages
-with st.columns(4):
-    with st.expander("Image Classifier"):
-        st.markdown('<a href="https://medimageclassification.streamlit.app/" target="_blank"><button>📸 Medicine Image Classifier</button></a>', unsafe_allow_html=True)
-
-    with st.expander("Disease Prediction"):
-        st.markdown('<a href="https://your-disease-prediction-deployment-link.com" target="_blank"><button>🩺 Disease Prediction</button></a>', unsafe_allow_html=True)
-
-    with st.expander("Outpatient Prediction"):
-        st.markdown('<a href="https://your-outpatient-prediction-deployment-link.com" target="_blank"><button>📅 Outpatient Prediction</button></a>', unsafe_allow_html=True)
-
-    with st.expander("Bed Occupancy Prediction"):
-        st.markdown('<a href="https://your-bed-occupancy-deployment-link.com" target="_blank"><button>🛏 Bed Occupancy Prediction</button></a>', unsafe_allow_html=True)
-
-st.markdown('</div>', unsafe_allow_html=True)
