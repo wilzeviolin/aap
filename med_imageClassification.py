@@ -53,6 +53,9 @@ elif page == "📸 Image Classifier":
         image = Image.open(uploaded_file).convert('RGB')
         st.image(image, caption="Uploaded Image", use_container_width=True)  # Updated parameter here
 
+        # Extract actual class from filename
+        actual_class = uploaded_file.name.split("_")[0] 
+
         # Preprocess the image
         image = image.resize((224, 224))
         image = np.array(image) / 255.0  # Normalize
@@ -65,6 +68,7 @@ elif page == "📸 Image Classifier":
 
         # Show results
         st.subheader("🔍 Classification Result")
+        st.write(f"### **Actual Class (from filename):** {actual_class}")
         st.write(f"### **Predicted Class:** {class_labels[predicted_class]}")
         st.write(f"### **Confidence:** {confidence:.2f}")
 
