@@ -59,7 +59,7 @@ st.markdown('<div class="navbar">', unsafe_allow_html=True)
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
-    st.markdown('<a href="https://maintrying.streamlit.app/" target="_blank"><button style="width: 100%;">🏠 Home</button></a>', unsafe_allow_html=True)
+    st.markdown('<a href="https://maintrying.streamlit.app/" target="_blank"><button style="width: 100%;">      🏠 Home     </button></a>', unsafe_allow_html=True)
 
 with col2:
     st.markdown('<a href="https://your-disease-prediction-deployment-link.com" target="_blank"><button style="width: 100%;">🩺 Disease Prediction</button></a>', unsafe_allow_html=True)
