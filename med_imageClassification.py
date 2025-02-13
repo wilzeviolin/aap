@@ -90,7 +90,7 @@ if page == "Homepage":
     st.subheader("🔍 How AI is Transforming Healthcare in Singapore")
     
     # 1. Disease Prediction
-    st.image("disease_prediction.jpeg", width=300)
+    st.image("diesease_prediction.jpeg", width=300)
     st.markdown("""
     **1️⃣ Disease Prediction with AI**  
     AI models can analyze symptoms and predict possible diseases early, improving diagnostic efficiency.  
@@ -98,7 +98,7 @@ if page == "Homepage":
     """)
 
     # 2. Medicine Classification
-    st.image("image_classification.jpg", width=300)
+    st.image("imgae_classification.jpg", width=300)
     st.markdown("""
     **2️⃣ Medicine Image Classification**  
     AI-powered image recognition can help classify medicines, reducing errors in prescriptions and enhancing pharmaceutical management.  
