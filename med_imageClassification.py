@@ -43,19 +43,7 @@ if page == "🏠 Home":
     redirect("https://maintrying.streamlit.app/")
 
 elif page == "📸 Image Classifier":
-    redirect("https://medimageclassification.streamlit.app/")
-
-elif page == "🩺 Disease Prediction":
-    redirect("https://your-disease-prediction-link")
-
-elif page == "📅 Outpatient Prediction":
-    redirect("https://your-outpatient-prediction-link")
-
-elif page == "🛏️ Bed Occupancy Prediction":
-    redirect("https://your-bed-occupancy-link")
-
-# Image Classifier (Default page)
-elif st.session_state.page == "📸 Image Classifier":
+    # Image Classifier page content
     st.title("📸 Medicine Image Classifier")
     st.write("Upload an image to classify.")
 
@@ -79,3 +67,12 @@ elif st.session_state.page == "📸 Image Classifier":
         st.subheader("🔍 Classification Result")
         st.write(f"### **Predicted Class:** {class_labels[predicted_class]}")
         st.write(f"### **Confidence:** {confidence:.2f}")
+
+elif page == "🩺 Disease Prediction":
+    redirect("https://your-disease-prediction-link")
+
+elif page == "📅 Outpatient Prediction":
+    redirect("https://your-outpatient-prediction-link")
+
+elif page == "🛏️ Bed Occupancy Prediction":
+    redirect("https://your-bed-occupancy-link")
