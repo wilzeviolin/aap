@@ -1,6 +1,7 @@
 import streamlit as st
 import tensorflow as tf
 import numpy as np
+import os
 from PIL import Image
 
 # Load the model
@@ -24,6 +25,13 @@ class_labels = {
     9: 'Neozep'
 }
 
+# Function to extract class from directory structure
+def get_actual_class(file_path):
+    folder_name = os.path.basename(os.path.dirname(file_path))
+    if folder_name in class_labels.values():
+        return folder_name
+    return "Unknown"
+
 # Sidebar navigation
 st.sidebar.title("Navigation")
 page = st.sidebar.radio("Go to", ["Homepage", "Image Classifier", "Model 1", "Model 2", "Model 3"])
@@ -38,14 +46,14 @@ elif page == "Image Classifier":
     st.title("Medicine Image Classifier")
     st.write("Upload an image to classify.")
 
-    # Dropdown for selecting actual class
-    actual_class = st.selectbox("Select the actual class:", list(class_labels.values()))
-
     uploaded_file = st.file_uploader("Upload an Image", type=["jpg", "png", "jpeg"])
 
     if uploaded_file is not None:
         image = Image.open(uploaded_file).convert('RGB')
         st.image(image, caption="Uploaded Image", use_column_width=True)
+
+        # Get actual class from directory
+        actual_class = get_actual_class(uploaded_file.name)
 
         # Preprocess the image
         image = image.resize((224, 224))
