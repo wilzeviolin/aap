@@ -96,7 +96,7 @@ if page == "Homepage":
     """)
 
     # 2. Medicine Classification
-    st.image("image_classification.jpg", width=300)
+    st.image("imgae_classification.jpg", width=300)
     st.markdown("""
     **2️⃣ Medicine Image Classification**  
     AI-powered image recognition can help classify medicines, reducing errors in prescriptions and enhancing pharmaceutical management.  
