@@ -32,8 +32,8 @@ if "page" not in st.session_state:
 
 page = st.sidebar.radio(
     "Go to", 
-    ["📸 Image Classifier", "🏠 Homepage", "🩺 Disease Prediction", "📅 Outpatient Prediction", "🛏️ Bed Occupancy Prediction"],
-    index=0  # Set default to first option (Image Classifier)
+    [ "🏠 Homepage","📸 Image Classifier", "🩺 Disease Prediction", "📅 Outpatient Prediction", "🛏️ Bed Occupancy Prediction"],
+    index=1  # Set default to first option (Image Classifier)
 )
 
 st.session_state.page = page  # Update session state
