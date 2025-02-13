@@ -73,11 +73,7 @@ with col4:
 st.markdown('</div>', unsafe_allow_html=True)
 
 # Default page content for Home Page
-page = st.sidebar.radio(
-    "Go to", 
-    ["🏠 Home", "📸 Image Classifier", "🩺 Disease Prediction", "📅 Outpatient Prediction", "🛏️ Bed Occupancy Prediction"],
-    index=0  # Default is "Home"
-)
+page = "📸 Image Classifier"  # Set "Image Classifier" as the default page
 
 if page == "🏠 Home":
     st.title("🏥 Welcome to AI Healthcare Solutions")
