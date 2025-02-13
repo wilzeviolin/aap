@@ -1,165 +1,114 @@
 import streamlit as st
-import tensorflow as tf
-import numpy as np
-from PIL import Image
-import os
 
-# Load the model
-@st.cache_resource
-def load_model():
-    return tf.keras.models.load_model("finetune_mobilenetv2_new.h5")
-
-model = load_model()
-
-# Define class labels
-class_labels = {
-    0: 'Alaxan',
-    1: 'Bactidol',
-    2: 'Bioflu',
-    3: 'Biogesic',
-    4: 'DayZinc',
-    5: 'Decolgen',
-    6: 'Fish Oil',
-    7: 'Kremil S',
-    8: 'Medicol',
-    9: 'Neozep'
-}
-
-# Custom CSS for navbar
+# Custom CSS for styling
 st.markdown("""
     <style>
-        .navbar {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            background-color: #f5f5f5;
-            padding: 10px;
-            border-radius: 10px;
+        .main-container {
+            padding: 30px;
+            max-width: 1000px;
+            margin: auto;
         }
-        .navbar a {
-            text-decoration: none;
-            font-size: 18px;
+        .header {
+            text-align: center;
+            font-size: 26px;
             font-weight: bold;
-            color: black;
-            padding: 10px 20px;
-            border-radius: 5px;
+            margin-bottom: 20px;
         }
-        .navbar a:hover {
-            background-color: #ddd;
+        .sub-header {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 30px;
         }
-        .active {
-            background-color: #4CAF50;
-            color: white !important;
+        .text {
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .link {
+            color: #4CAF50;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .link:hover {
+            text-decoration: underline;
         }
     </style>
 """, unsafe_allow_html=True)
 
-# Create navigation bar
+st.markdown('<div class="main-container">', unsafe_allow_html=True)
+
+st.image("healthcare_banner.jpg", use_column_width=True)
+
+st.markdown('<div class="header">🏥 AI in Healthcare: Optimizing Resources & Accessibility</div>', unsafe_allow_html=True)
+
 st.markdown("""
-    <div class="navbar">
-        <a href="?page=Homepage" {home_active}>🏠 Home</a>
-        <a href="?page=ImageClassifier" {classifier_active}>📸 Image Classifier</a>
-    </div>
-""".format(
-    home_active='class="active"' if st.query_params.get("page") == "Homepage" or st.query_params.get("page") is None else "",
-    classifier_active='class="active"' if st.query_params.get("page") == "ImageClassifier" else ""
-), unsafe_allow_html=True)
+    <p class="text">
+    As Singapore’s healthcare system evolves, <b>leveraging cutting-edge technologies</b> is crucial to address emerging challenges. 
+    With increasing demand for medical services and resources, traditional approaches may no longer suffice.
+    <br><br>
+    However, <b>Artificial Intelligence (AI)</b> offers solutions to enhance efficiency in hospitals, optimize healthcare resources, and 
+    improve accessibility. This leads us to our <b>problem statement</b>:
+    </p>
+""", unsafe_allow_html=True)
 
-# Get page from URL params (default to Homepage)
-page = st.query_params.get("page") or "Homepage"
+st.markdown('<p class="sub-header">“How can we leverage AI to optimize healthcare resources and improve accessibility for Singaporeans?”</p>', unsafe_allow_html=True)
 
-# Homepage
-if page == "Homepage":
-    st.title("🏥 AI in Healthcare: Optimizing Resources & Accessibility")
-    
-    # Introduction Section
-    st.image("healthcare_banner.jpg", use_column_width=True)
-    st.write("""
-    As Singapore’s healthcare system evolves, **leveraging cutting-edge technologies** becomes crucial to addressing emerging challenges. 
-    With **increasing demand** for medical services and resources, traditional approaches may no longer suffice.
-    
-    However, **Artificial Intelligence (AI)** offers new possibilities to enhance efficiency in hospitals, optimize healthcare resources, 
-    and improve accessibility. This leads us to our **problem statement**:
-    
-    > **“How can we leverage AI to optimize healthcare resources and improve accessibility for Singaporeans?”**
-    """)
+# AI Applications Section
+st.markdown('<div class="sub-header">🔍 How AI is Transforming Healthcare</div>', unsafe_allow_html=True)
 
-    # AI Applications Section
-    st.subheader("🔍 How AI is Transforming Healthcare in Singapore")
-    
-    # 1. Disease Prediction
-    st.image("diesease_prediction.jpeg", width=300)
+col1, col2 = st.columns(2)
+
+with col1:
+    st.image("disease_prediction.jpeg", use_column_width=True)
     st.markdown("""
     **1️⃣ Disease Prediction with AI**  
     AI models can analyze symptoms and predict possible diseases early, improving diagnostic efficiency.  
-    👉 [Learn more](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7179009/)
-    """)
+    👉 <a class="link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7179009/" target="_blank">Learn more</a>
+    """, unsafe_allow_html=True)
 
-    # 2. Medicine Classification
-    st.image("imgae_classification.jpg", width=300)
+with col2:
+    st.image("image_classification.jpg", use_column_width=True)
     st.markdown("""
     **2️⃣ Medicine Image Classification**  
-    AI-powered image recognition can help classify medicines, reducing errors in prescriptions and enhancing pharmaceutical management.  
-    👉 [Read about AI in Pharma](https://www.frontiersin.org/articles/10.3389/fphar.2021.700569/full)
-    """)
+    AI-powered image recognition can help classify medicines, reducing prescription errors and enhancing pharmaceutical management.  
+    👉 <a class="link" href="https://www.frontiersin.org/articles/10.3389/fphar.2021.700569/full" target="_blank">Read about AI in Pharma</a>
+    """, unsafe_allow_html=True)
 
-    # 3. Outpatient Attendance Prediction
-    st.image("outpatient.jpeg", width=300)
+st.markdown("<br>", unsafe_allow_html=True)  # Add spacing
+
+col3, col4 = st.columns(2)
+
+with col3:
+    st.image("outpatient.jpeg", use_column_width=True)
     st.markdown("""
     **3️⃣ Predicting Outpatient Attendance**  
     AI can forecast patient volume at clinics and hospitals, allowing better staffing and resource allocation.  
-    👉 [Explore AI in Healthcare Operations](https://www.healthcareitnews.com/news/how-ai-can-improve-patient-flow-and-hospital-operations)
-    """)
+    👉 <a class="link" href="https://www.healthcareitnews.com/news/how-ai-can-improve-patient-flow-and-hospital-operations" target="_blank">Explore AI in Healthcare Operations</a>
+    """, unsafe_allow_html=True)
 
-    # 4. Bed Occupancy Prediction
-    st.image("bed_occupancy.jpeg", width=300)
+with col4:
+    st.image("bed_occupancy.jpeg", use_column_width=True)
     st.markdown("""
     **4️⃣ Bed Occupancy Prediction**  
     AI can predict hospital bed demand, helping optimize patient flow and reducing waiting times.  
-    👉 [See AI's impact on bed management](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0266612)
-    """)
+    👉 <a class="link" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0266612" target="_blank">See AI's impact on bed management</a>
+    """, unsafe_allow_html=True)
 
-    # Conclusion
-    st.subheader("🚀 The Future of AI in Healthcare")
-    st.write("""
-    AI-driven healthcare solutions can lead to **more efficient hospitals, improved patient care, and better resource utilization**. 
-    With continuous advancements, AI will play a critical role in shaping **Singapore’s future healthcare landscape**.
-    
+st.markdown("<br>", unsafe_allow_html=True)  # Add spacing
+
+# Conclusion Section
+st.markdown("""
+    <div class="sub-header">🚀 The Future of AI in Healthcare</div>
+    <p class="text">
+    AI-driven healthcare solutions can lead to <b>more efficient hospitals, improved patient care, and better resource utilization</b>. 
+    With continuous advancements, AI will play a critical role in shaping <b>Singapore’s future healthcare landscape</b>.
+    <br><br>
     Navigate through the sidebar to explore different AI models in action! 💡
-    """)
+    </p>
+""", unsafe_allow_html=True)
 
-# Image Classifier
-elif page == "ImageClassifier":
-    st.title("📸 Medicine Image Classifier")
-    st.write("Upload an image to classify.")
-
-    uploaded_file = st.file_uploader("Upload an Image", type=["jpg", "png", "jpeg"])
-
-    if uploaded_file is not None:
-        image = Image.open(uploaded_file).convert('RGB')
-        st.image(image, caption="Uploaded Image", use_column_width=True)
-
-        # Extract actual class from filename (assuming format: 'ClassName_#.jpg')
-        actual_class = uploaded_file.name.split("_")[0]  # Gets the first part before "_"
-
-        # Preprocess the image
-        image = image.resize((224, 224))
-        image = np.array(image) / 255.0  # Normalize
-        image = np.expand_dims(image, axis=0)
-
-        # Make prediction
-        prediction = model.predict(image)
-        predicted_class = np.argmax(prediction)
-        confidence = np.max(prediction)  # Get confidence score
-
-        # Show results
-        st.subheader("Image Classification Prediction Result")
-        st.write(f"### **Actual Class (from filename):** {actual_class}")
-        st.write(f"### **Predicted Class:** {class_labels[predicted_class]}")
-        st.write(f"### **Confidence:** {confidence:.2f}")
-
-        # Check if prediction is correct
-        if actual_class.lower() == class_labels[predicted_class].lower():
-            st.success("✅ Prediction is correct!")
-        else:
-            st.error("❌ Prediction is incorrect.")
+st.markdown('</div>', unsafe_allow_html=True)  # End main container
