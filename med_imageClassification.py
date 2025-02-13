@@ -32,14 +32,18 @@ if "page" not in st.session_state:
 
 page = st.sidebar.radio(
     "Go to", 
-    [ "🏠 Homepage","📸 Image Classifier", "🩺 Disease Prediction", "📅 Outpatient Prediction", "🛏️ Bed Occupancy Prediction"],
-    index=1  # Set default to first option (Image Classifier)
+    ["🏠 Home", "📸 Image Classifier", "🩺 Disease Prediction", "📅 Outpatient Prediction", "🛏️ Bed Occupancy Prediction"],
+    index=1  # Default to Image Classifier
 )
 
 st.session_state.page = page  # Update session state
 
+# Home (Redirects to your main Streamlit app)
+if st.session_state.page == "🏠 Home":
+    st.markdown("[Go to Main Page](https://maintrying.streamlit.app/)")
+
 # Image Classifier (Default page)
-if st.session_state.page == "📸 Image Classifier":
+elif st.session_state.page == "📸 Image Classifier":
     st.title("📸 Medicine Image Classifier")
     st.write("Upload an image to classify.")
 
@@ -63,32 +67,6 @@ if st.session_state.page == "📸 Image Classifier":
         st.subheader("🔍 Classification Result")
         st.write(f"### **Predicted Class:** {class_labels[predicted_class]}")
         st.write(f"### **Confidence:** {confidence:.2f}")
-
-# Homepage
-elif st.session_state.page == "🏠 Homepage":
-    st.title("🏥 AI in Healthcare")
-    st.image("healthcare_banner.jpg", use_column_width=True)
-    st.write("""
-    AI is revolutionizing healthcare by improving efficiency, optimizing resources, and enhancing accessibility.  
-    Explore how AI can transform Singapore's healthcare system.
-    """)
-    
-    # Display AI applications with images (2x2 layout)
-    col1, col2 = st.columns(2)
-
-    with col1:
-        st.image("disease_prediction.jpg", width=300)
-        st.markdown("**🩺 Disease Prediction** - AI predicts diseases from symptoms. 👉 [Learn more](https://your-disease-prediction-link)")
-
-        st.image("outpatient.jpg", width=300)
-        st.markdown("**📅 Outpatient Prediction** - AI forecasts patient attendance. 👉 [Explore](https://your-outpatient-prediction-link)")
-
-    with col2:
-        st.image("image_classification.jpg", width=300)
-        st.markdown("**📸 Medicine Image Classifier** - AI identifies medicines. 👉 [Read more](https://your-medicine-image-link)")
-
-        st.image("bed_occupancy.jpg", width=300)
-        st.markdown("**🛏️ Bed Occupancy Prediction** - AI predicts hospital bed demand. 👉 [See impact](https://your-bed-occupancy-link)")
 
 # Other Pages
 elif st.session_state.page == "🩺 Disease Prediction":
