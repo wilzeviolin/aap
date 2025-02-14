@@ -19,28 +19,39 @@ st.subheader("🔍 How AI is Transforming Healthcare in Singapore")
 # Apply Gestalt Principle of Continuation by alternating image and text placement
 col1, col2 = st.columns(2)
 
+# First image and text: image on the left
 with col1:
-    st.image("diesease_prediction.jpeg", width=300)  # Set to 300px width for uniformity
+    st.image("diesease_prediction.jpeg", width=300)  # Ensure uniform size for all images
 with col2:
     st.markdown("**1️⃣ Disease Prediction with AI** - AI models can analyze symptoms and predict diseases early. 👉 [Learn more](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7179009/)")
 
+st.markdown("<hr>", unsafe_allow_html=True)  # Adding a horizontal line for separation
+
 col3, col4 = st.columns(2)
 
+# Second image and text: image on the right
 with col3:
     st.markdown("**2️⃣ Medicine Image Classification** - AI-powered recognition helps classify medicines. 👉 [Read more](https://medimageclassification.streamlit.app/)")
 with col4:
-    st.image("imgae_classification.jpg", width=300)  # Set to 300px width for uniformity
+    st.image("imgae_classification.jpg", width=300)  # Ensure uniform size for all images
+
+st.markdown("<hr>", unsafe_allow_html=True)  # Adding a horizontal line for separation
 
 col5, col6 = st.columns(2)
 
+# Third image and text: image on the left
 with col5:
-    st.image("outpatient.jpeg", width=300)  # Set to 300px width for uniformity
+    st.image("outpatient.jpeg", width=300)  # Ensure uniform size for all images
 with col6:
     st.markdown("**3️⃣ Predicting Outpatient Attendance** - AI can forecast patient volume. 👉 [Explore AI in Healthcare](https://www.healthcareitnews.com/news/how-ai-can-improve-patient-flow-and-hospital-operations)")
 
+st.markdown("<hr>", unsafe_allow_html=True)  # Adding a horizontal line for separation
+
 col7, col8 = st.columns(2)
 
+# Fourth image and text: image on the right
 with col7:
     st.markdown("**4️⃣ Bed Occupancy Prediction** - AI predicts hospital bed demand. 👉 [See AI's impact](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0266612)")
 with col8:
-    st.image("bed_occupancy.jpeg", width=300)  # Set to 300px width for uniformity
+    st.image("bed_occupancy.jpeg", width=300)  # Ensure uniform size for all images
+
