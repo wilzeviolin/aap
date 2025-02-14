@@ -24,7 +24,7 @@ class_labels = {
     9: 'Neozep'
 }
 
-# Custom CSS to make all buttons uniform
+# Custom CSS to style the navigation bar and buttons
 st.markdown("""
     <style>
         .navbar {
@@ -44,7 +44,7 @@ st.markdown("""
             font-size: 16px;
             font-weight: bold;
             color: white;
-            padding: 12px 24px;
+            padding: 14px 28px; /* Uniform padding */
             border-radius: 10px;
             cursor: pointer;
             transition: background 0.3s ease, transform 0.3s ease;
@@ -57,6 +57,10 @@ st.markdown("""
             background-color: #388E3C;
             transform: scale(1.05);
         }
+        /* Increase padding for Home button */
+        .home-btn {
+            padding: 14px 28px !important; /* Matches other buttons */
+        }
     </style>
 """, unsafe_allow_html=True)
 
@@ -66,7 +70,7 @@ col1, col2, col3, col4 = st.columns(4)
 
 with col1:
     st.markdown('<a href="https://maintrying.streamlit.app/" target="_self">'
-                '<button>🏠 Home</button></a>', unsafe_allow_html=True)
+                '<button class="home-btn">🏠 Home</button></a>', unsafe_allow_html=True)
 
 with col2:
     st.markdown('<a href="https://your-disease-prediction-deployment-link.com" target="_self">'
