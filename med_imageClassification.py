@@ -62,7 +62,7 @@ with col1:
     st.markdown('<a href="https://maintrying.streamlit.app/" target="_blank"><button style="width: 100%; padding: 14px 24px;">🏠 Home</button></a>', unsafe_allow_html=True)
 
 with col2:
-    st.markdown('<a href="https://your-disease-prediction-deployment-link.com" target="_blank"><button style="width: 100%;">🩺 Disease Prediction</button></a>', unsafe_allow_html=True)
+    st.markdown('<a href="https://medsimageclassification.streamlit.app/" target="_blank"><button style="width: 100%;">🩺 Disease Prediction</button></a>', unsafe_allow_html=True)
 
 with col3:
     st.markdown('<a href="https://your-outpatient-prediction-deployment-link.com" target="_blank"><button style="width: 100%;">📅 Outpatient Prediction</button></a>', unsafe_allow_html=True)
@@ -75,11 +75,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 # Default page content for Home Page
 page = "📸 Image Classifier"  # Set "Image Classifier" as the default page
 
-if page == "🏠 Home":
-    st.title("🏥 Welcome to AI Healthcare Solutions")
-    st.write("This is the homepage where we can showcase the latest AI innovations in healthcare.")
-
-elif page == "📸 Image Classifier":
+if page == "📸 Image Classifier":
     st.title("📸 Medicine Image Classifier")
     st.write("Upload an image to classify.")
 
@@ -108,13 +104,5 @@ elif page == "📸 Image Classifier":
         st.write(f"### **Predicted Class:** {class_labels[predicted_class]}")
         st.write(f"### **Confidence:** {confidence:.2f}")
 
-elif page == "🩺 Disease Prediction":
-    redirect("https://your-disease-prediction-link")
-
-elif page == "📅 Outpatient Prediction":
-    redirect("https://your-outpatient-prediction-link")
-
-elif page == "🛏️ Bed Occupancy Prediction":
-    redirect("https://your-bed-occupancy-link")
 
 
