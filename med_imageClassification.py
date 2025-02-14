@@ -24,70 +24,56 @@ class_labels = {
     9: 'Neozep'
 }
 
-# Custom CSS to style the navigation bar and buttons
+# Custom CSS for a cleaner navbar without the black shadow
 st.markdown("""
     <style>
         .navbar {
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 30px;
             background-color: white;
             padding: 15px 0;
             border-radius: 10px;
         }
-        .navbar a {
-            text-decoration: none;
-            flex: 1;
-        }
         .navbar button {
             border: none;
-            font-size: 16px;
+            background: none;
+            font-size: 18px;
             font-weight: bold;
             color: white;
-            padding: 14px 28px; /* Uniform padding */
-            border-radius: 10px;
+            padding: 12px 24px;
+            border-radius: 30px;
             cursor: pointer;
             transition: background 0.3s ease, transform 0.3s ease;
             text-align: center;
-            background-color: #4CAF50;
-            width: 100%;
-            height: 50px;
         }
         .navbar button:hover {
             background-color: #388E3C;
             transform: scale(1.05);
         }
-        /* Increase padding for Home button */
-        .home-btn {
-            padding: 14px 28px !important; /* Matches other buttons */
-        }
     </style>
 """, unsafe_allow_html=True)
 
-# Create navigation bar using Streamlit columns
+# Create navigation bar with direct links to deployment
 st.markdown('<div class="navbar">', unsafe_allow_html=True)
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
-    st.markdown('<a href="https://maintrying.streamlit.app/" target="_self">'
-                '<button class="home-btn">🏠 Home</button></a>', unsafe_allow_html=True)
+    st.markdown('<a href="https://maintrying.streamlit.app/" target="_blank"><button style="width: 100%;">🏠 Home</button></a>', unsafe_allow_html=True)
 
 with col2:
-    st.markdown('<a href="https://your-disease-prediction-deployment-link.com" target="_self">'
-                '<button>🩺 Disease Prediction</button></a>', unsafe_allow_html=True)
+    st.markdown('<a href="https://your-disease-prediction-deployment-link.com" target="_blank"><button style="width: 100%;">🩺 Disease Prediction</button></a>', unsafe_allow_html=True)
 
 with col3:
-    st.markdown('<a href="https://your-outpatient-prediction-deployment-link.com" target="_self">'
-                '<button>📅 Outpatient Prediction</button></a>', unsafe_allow_html=True)
+    st.markdown('<a href="https://your-outpatient-prediction-deployment-link.com" target="_blank"><button style="width: 100%;">📅 Outpatient Prediction</button></a>', unsafe_allow_html=True)
 
 with col4:
-    st.markdown('<a href="https://your-bed-occupancy-deployment-link.com" target="_self">'
-                '<button>🛏 Bed Occupancy Prediction</button></a>', unsafe_allow_html=True)
+    st.markdown('<a href="https://your-bed-occupancy-deployment-link.com" target="_blank"><button style="width: 100%;">🛏 Bed Occupancy Prediction</button></a>', unsafe_allow_html=True)
 
 st.markdown('</div>', unsafe_allow_html=True)
 
 # Default page content for Home Page
-page = "📸 Image Classifier"
+page = "📸 Image Classifier"  # Set "Image Classifier" as the default page
 
 if page == "🏠 Home":
     st.title("🏥 Welcome to AI Healthcare Solutions")
@@ -130,3 +116,5 @@ elif page == "📅 Outpatient Prediction":
 
 elif page == "🛏️ Bed Occupancy Prediction":
     redirect("https://your-bed-occupancy-link")
+
+
