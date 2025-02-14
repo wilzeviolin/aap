@@ -89,7 +89,8 @@ st.markdown('</div>', unsafe_allow_html=True)
 page = "📸 Image Classifier"
 
 if page == "🏠 Home":
-    redirect("https://maintrying.streamlit.app/")
+    st.title("🏥 Welcome to AI Healthcare Solutions")
+    st.write("This is the homepage where we can showcase the latest AI innovations in healthcare.")
 
 elif page == "📸 Image Classifier":
     st.title("📸 Medicine Image Classifier")
@@ -128,4 +129,3 @@ elif page == "📅 Outpatient Prediction":
 
 elif page == "🛏️ Bed Occupancy Prediction":
     redirect("https://your-bed-occupancy-link")
-
