@@ -192,7 +192,7 @@ def main():
                 st.write("### Actual Medicine Information:")
                 display_medicine_info(actual_class)
                 st.markdown("---")
-                st.write("### Predicted Medicine Information:")
+                st.write("### Wrong Predicted Medicine Information:")
                 display_medicine_info(predicted_class)
 
 if __name__ == "__main__":
