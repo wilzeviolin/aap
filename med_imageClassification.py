@@ -24,34 +24,34 @@ class_labels = {
     9: 'Neozep'
 }
 
-# Custom CSS for uniform buttons
+# Custom CSS to make all buttons uniform
 st.markdown("""
     <style>
         .navbar {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 10px;
             background-color: white;
             padding: 15px 0;
             border-radius: 10px;
         }
         .navbar a {
             text-decoration: none;
+            flex: 1;
         }
         .navbar button {
             border: none;
-            background: none;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
             color: white;
             padding: 12px 24px;
-            border-radius: 30px;
+            border-radius: 10px;
             cursor: pointer;
             transition: background 0.3s ease, transform 0.3s ease;
             text-align: center;
-            background-color: #4CAF50; /* Set a background color */
-            width: 220px; /* Force all buttons to have the same width */
-            height: 50px; /* Force all buttons to have the same height */
+            background-color: #4CAF50;
+            width: 100%;
+            height: 50px;
         }
         .navbar button:hover {
             background-color: #388E3C;
@@ -60,28 +60,25 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Create navigation bar
+# Create navigation bar using Streamlit columns
 st.markdown('<div class="navbar">', unsafe_allow_html=True)
+col1, col2, col3, col4 = st.columns(4)
 
-st.markdown(
-    '<a href="https://maintrying.streamlit.app/" target="_blank">'
-    '<button>🏠 Home</button></a>', unsafe_allow_html=True
-)
+with col1:
+    st.markdown('<a href="https://maintrying.streamlit.app/" target="_self">'
+                '<button>🏠 Home</button></a>', unsafe_allow_html=True)
 
-st.markdown(
-    '<a href="https://your-disease-prediction-deployment-link.com" target="_blank">'
-    '<button>🩺 Disease Prediction</button></a>', unsafe_allow_html=True
-)
+with col2:
+    st.markdown('<a href="https://your-disease-prediction-deployment-link.com" target="_self">'
+                '<button>🩺 Disease Prediction</button></a>', unsafe_allow_html=True)
 
-st.markdown(
-    '<a href="https://your-outpatient-prediction-deployment-link.com" target="_blank">'
-    '<button>📅 Outpatient Prediction</button></a>', unsafe_allow_html=True
-)
+with col3:
+    st.markdown('<a href="https://your-outpatient-prediction-deployment-link.com" target="_self">'
+                '<button>📅 Outpatient Prediction</button></a>', unsafe_allow_html=True)
 
-st.markdown(
-    '<a href="https://your-bed-occupancy-deployment-link.com" target="_blank">'
-    '<button>🛏 Bed Occupancy Prediction</button></a>', unsafe_allow_html=True
-)
+with col4:
+    st.markdown('<a href="https://your-bed-occupancy-deployment-link.com" target="_self">'
+                '<button>🛏 Bed Occupancy Prediction</button></a>', unsafe_allow_html=True)
 
 st.markdown('</div>', unsafe_allow_html=True)
 
