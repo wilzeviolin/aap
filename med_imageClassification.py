@@ -10,7 +10,21 @@ def load_model():
 
 model = load_model()
 
-# Define class labels and descriptions
+# Define class labels
+class_labels = {
+    0: 'Alaxan',
+    1: 'Bactidol',
+    2: 'Bioflu',
+    3: 'Biogesic',
+    4: 'DayZinc',
+    5: 'Decolgen',
+    6: 'Fish Oil',
+    7: 'Kremil S',
+    8: 'Medicol',
+    9: 'Neozep'
+}
+
+# Define medicine information
 medicine_info = {
     'Alaxan': {
         'description': "Alaxan is a powerful combination pain reliever containing paracetamol and ibuprofen. It effectively treats various types of pain including:",
