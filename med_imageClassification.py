@@ -65,7 +65,7 @@ st.markdown("""
 
 # Create navigation bar using Streamlit columns
 st.markdown('<div class="navbar">', unsafe_allow_html=True)
-col1, col2, col3, col4 = st.columns([3, 1, 1, 1], gap="medium")  # Adjusted column sizes
+col1, col2, col3, col4 = st.columns(4, gap="medium")  # Ensures equal spacing
 
 with col1:
     st.markdown('<a href="https://maintrying.streamlit.app/" target="_self">'
@@ -84,8 +84,6 @@ with col4:
                 '<button>🛏 Bed Occupancy Prediction</button></a>', unsafe_allow_html=True)
 
 st.markdown('</div>', unsafe_allow_html=True)
-
-
 
 # Default page content for Home Page
 page = "📸 Image Classifier"
@@ -131,3 +129,4 @@ elif page == "📅 Outpatient Prediction":
 
 elif page == "🛏️ Bed Occupancy Prediction":
     redirect("https://your-bed-occupancy-link")
+
