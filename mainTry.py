@@ -86,10 +86,8 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Page title with larger font
-st.markdown('<h1 class="main-title">🔍 How AI is Transforming Healthcare in Singapore</h1>', unsafe_allow_html=True)
-
-# Banner image with container width
+# Page title and banner
+st.title("🏥 AI in Healthcare: Optimizing Resources & Accessibility")
 st.image("healthcare_banner.jpg", use_container_width=True)
 
 # Introduction section
@@ -102,6 +100,11 @@ st.markdown("""
         <b>How can AI help optimize healthcare resources and improve accessibility for Singaporeans?</b>
     </div>
 """, unsafe_allow_html=True)
+
+# Page title with larger font
+st.markdown('<h1 class="main-title">🔍 How AI is Transforming Healthcare in Singapore</h1>', unsafe_allow_html=True)
+
+
 
 # Content sections using custom columns with adjusted image sizes
 # 1. Disease Prediction
