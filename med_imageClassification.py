@@ -29,14 +29,14 @@ st.markdown("""
     <style>
         .navbar {
             display: flex;
-            justify-content: space-evenly; /* Distributes buttons evenly */
+            justify-content: space-around; /* Slightly tighter spacing */
             background-color: white;
             padding: 15px 0;
             border-radius: 10px;
         }
         .navbar a {
             text-decoration: none;
-            flex-grow: 1; /* Ensures equal spacing */
+            flex-grow: 1;
             text-align: center;
         }
         .navbar button {
@@ -56,7 +56,7 @@ st.markdown("""
             background-color: #388E3C;
             transform: scale(1.05);
         }
-        /* Home button styling to match others */
+        /* Home button padding adjustment */
         .home-btn {
             padding: 14px 28px !important;
         }
@@ -65,7 +65,7 @@ st.markdown("""
 
 # Create navigation bar using Streamlit columns
 st.markdown('<div class="navbar">', unsafe_allow_html=True)
-col1, col2, col3, col4 = st.columns(4, gap="medium")  # Ensures equal spacing
+col1, col2, col3, col4 = st.columns(4, gap="small")  # Reduced gap
 
 with col1:
     st.markdown('<a href="https://maintrying.streamlit.app/" target="_self">'
@@ -85,47 +85,4 @@ with col4:
 
 st.markdown('</div>', unsafe_allow_html=True)
 
-# Default page content for Home Page
-page = "📸 Image Classifier"
-
-if page == "🏠 Home":
-    st.title("🏥 Welcome to AI Healthcare Solutions")
-    st.write("This is the homepage where we can showcase the latest AI innovations in healthcare.")
-
-elif page == "📸 Image Classifier":
-    st.title("📸 Medicine Image Classifier")
-    st.write("Upload an image to classify.")
-
-    uploaded_file = st.file_uploader("Upload an Image", type=["jpg", "png", "jpeg"])
-
-    if uploaded_file is not None:
-        image = Image.open(uploaded_file).convert('RGB')
-        st.image(image, caption="Uploaded Image", use_container_width=True)
-        
-        # Extract actual class from filename
-        actual_class = uploaded_file.name.split("_")[0]
-
-        # Preprocess the image
-        image = image.resize((224, 224))
-        image = np.array(image) / 255.0  # Normalize
-        image = np.expand_dims(image, axis=0)
-
-        # Make prediction
-        prediction = model.predict(image)
-        predicted_class = np.argmax(prediction)
-        confidence = np.max(prediction)  # Get confidence score
-
-        # Show results
-        st.subheader("🔍 Classification Result")
-        st.write(f"### **Actual Class :** {actual_class}")
-        st.write(f"### **Predicted Class:** {class_labels[predicted_class]}")
-        st.write(f"### **Confidence:** {confidence:.2f}")
-
-elif page == "🩺 Disease Prediction":
-    redirect("https://your-disease-prediction-link")
-
-elif page == "📅 Outpatient Prediction":
-    redirect("https://your-outpatient-prediction-link")
-
-elif page == "🛏️ Bed Occupancy Prediction":
-    redirect("https://your-bed-occupancy-link")
+# Default page content 
