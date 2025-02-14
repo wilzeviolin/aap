@@ -93,10 +93,11 @@ st.image("healthcare_banner.jpg", use_container_width=True)
 # Introduction section
 st.markdown("""
     <div class="full-width-text">
-        As Singapore's healthcare system evolves, <b>leveraging cutting-edge technologies</b> becomes crucial.
-        With the nation's <b>aging population and increasing demand</b> for medical services, AI provides an opportunity to optimize healthcare delivery.
-        <b>AI-driven solutions</b> are helping in disease prediction, outpatient management, and resource allocation, ensuring that patients receive the care they need efficiently.
-        By integrating AI, healthcare providers can reduce bottlenecks, improve diagnostics, and enhance the patient experience.
+        As Singapore’s healthcare system develops and continues to evolve throughout the years, leveraging cutting-edge technologies 
+        becomes an important factor to address emerging challenges in Singapore. As the demand for medical services and resources continues to rise due to  epidemiological 
+        transition, traditional approaches may no longer be enough to resolve these issues. However, Artificial Intelligence (AI), may be able to 
+        provide help for our healthcare sector by offering them the potential to enhance efficiency in hospitals, optimise healthcare resources, and 
+        improve accessibility. Hence, these possibilities lead us to form our problem statement: 
         <b>How can AI help optimize healthcare resources and improve accessibility for Singaporeans?</b>
     </div>
 """, unsafe_allow_html=True)
