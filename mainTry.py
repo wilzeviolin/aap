@@ -3,7 +3,7 @@ import streamlit as st
 # Set the page layout to wide
 st.set_page_config(layout="wide")
 
-# Enhanced CSS for better spacing and alignment
+# [Previous CSS styles remain the same...]
 st.markdown("""
     <style>
         /* Main title styling */
@@ -88,12 +88,12 @@ st.markdown("""
 
 # Page title and banner
 st.title("🏥 AI in Healthcare: Optimizing Resources & Accessibility")
-st.image("healthcare_banner.jpg", use_container_width=True)
+st.image("bgImage/healthcare_banner.jpg", use_container_width=True)
 
 # Introduction section
 st.markdown("""
     <div class="full-width-text">
-        As Singapore’s healthcare system develops and continues to evolve throughout the years, leveraging cutting-edge technologies 
+        As Singapore's healthcare system develops and continues to evolve throughout the years, leveraging cutting-edge technologies 
         becomes an important factor to address emerging challenges in Singapore. As the demand for medical services and resources continues to rise due to  epidemiological 
         transition, traditional approaches may no longer be enough to resolve these issues. However, Artificial Intelligence (AI), may be able to 
         provide help for our healthcare sector by offering them the potential to enhance efficiency in hospitals, optimise healthcare resources, and 
@@ -104,8 +104,6 @@ st.markdown("""
 
 # Page title with larger font
 st.markdown('<h1 class="main-title">🔍 How AI is Transforming Healthcare in Singapore</h1>', unsafe_allow_html=True)
-
-
 
 # Content sections using custom columns with adjusted image sizes
 # 1. Disease Prediction
@@ -118,14 +116,14 @@ with col1:
         👉 [Learn more](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7179009/)
     """)
 with col2:
-    st.image("diesease_prediction.jpeg", use_container_width=True)
+    st.image("bgImage/diesease_prediction.jpeg", use_container_width=True)
 
 st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
 
 # 2. Medicine Image Classification
 col3, col4 = st.columns([1, 2], gap="small")
 with col3:
-    st.image("imgae_classification.jpg", use_container_width=True)
+    st.image("bgImage/imgae_classification.jpg", use_container_width=True)
 with col4:
     st.markdown("""
         ### 2️⃣ Medicine Image Classification
@@ -146,14 +144,14 @@ with col5:
         👉 [Explore AI in Healthcare](https://www.healthcareitnews.com/news/how-ai-can-improve-patient-flow-and-hospital-operations)
     """)
 with col6:
-    st.image("outpatient.jpeg", use_container_width=True)
+    st.image("bgImage/outpatient.jpeg", use_container_width=True)
 
 st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
 
 # 4. Bed Occupancy Prediction
 col7, col8 = st.columns([1, 2], gap="small")
 with col7:
-    st.image("bed_occupancy.jpeg", use_container_width=True)
+    st.image("bgImage/bed_occupancy.jpeg", use_container_width=True)
 with col8:
     st.markdown("""
         ### 4️⃣ Bed Occupancy Prediction
