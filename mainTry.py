@@ -23,11 +23,11 @@ col1, col2 = st.columns(2)
 with col1:
     st.image("diesease_prediction.jpeg", width=300)  # Ensure uniform size for all images
 with col2:
-    st.markdown("**1️⃣ Disease Prediction with AI** - AI models can analyThyroid conditions are usually not life-threatening if diagnosed and treated properly. However, severe, untreated thyroid disorders can lead to serious complications.
-
-Hypothyroidism (underactive thyroid): If left untreated, it can cause myxedema, a rare but life-threatening condition that leads to extreme fatigue, slow heart rate, and even coma.
-Hyperthyroidism (overactive thyroid): If untreated, it can lead to a thyroid storm, a dangerous condition with high fever, rapid heartbeat, and organ failure.
-Early diagnosis and treatment (medication, lifestyle changes, or surgery if needed) can prevent these complications. If you have symptoms like extreme fatigue, weight changes, or heart issues, it's best to see a doctor.ze symptoms and predict diseases early. 👉 [Learn more](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7179009/)")
+    st.markdown("**1️⃣ Disease Prediction with AI** - AI models can analyze symptoms and predict diseases early. 👉 [Learn more](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7179009/)")
+    st.write("""
+    AI-based disease prediction models can assist in early diagnosis, helping healthcare professionals to take preventive measures.  
+    These AI tools analyze symptoms and other data to predict potential diseases before they become severe, reducing the burden on healthcare resources.
+    """)
 
 st.markdown("<hr>", unsafe_allow_html=True)  # Adding a horizontal line for separation
 
@@ -35,11 +35,11 @@ col3, col4 = st.columns(2)
 
 # Second image and text: image on the right (aligned to the far right)
 with col3:
-    st.markdown("**2️⃣ Medicine Image Classification** - AI-powered reThyroid conditions are usually not life-threatening if diagnosed and treated properly. However, severe, untreated thyroid disorders can lead to serious complications.
-
-Hypothyroidism (underactive thyroid): If left untreated, it can cause myxedema, a rare but life-threatening condition that leads to extreme fatigue, slow heart rate, and even coma.
-Hyperthyroidism (overactive thyroid): If untreated, it can lead to a thyroid storm, a dangerous condition with high fever, rapid heartbeat, and organ failure.
-Early diagnosis and treatment (medication, lifestyle changes, or surgery if needed) can prevent these complications. If you have symptoms like extreme fatigue, weight changes, or heart issues, it's best to see a doctor.cognition helps classify medicines. 👉 [Read more](https://medimageclassification.streamlit.app/)")
+    st.markdown("**2️⃣ Medicine Image Classification** - AI-powered recognition helps classify medicines. 👉 [Read more](https://medimageclassification.streamlit.app/)")
+    st.write("""
+    AI models are capable of recognizing and classifying various medicines based on their visual appearance.  
+    This technology helps in streamlining pharmacy operations, reducing errors, and improving drug management in healthcare systems.
+    """)
 with col4:
     st.markdown(
         """
@@ -58,11 +58,11 @@ col5, col6 = st.columns(2)
 with col5:
     st.image("outpatient.jpeg", width=300)  # Ensure uniform size for all images
 with col6:
-    st.markdown("**3️⃣ Predicting Outpatient Attendance** - AI can forecast patient volume asdfThyroid conditions are usually not life-threatening if diagnosed and treated properly. However, severe, untreated thyroid disorders can lead to serious complications.
-
-Hypothyroidism (underactive thyroid): If left untreated, it can cause myxedema, a rare but life-threatening condition that leads to extreme fatigue, slow heart rate, and even coma.
-Hyperthyroidism (overactive thyroid): If untreated, it can lead to a thyroid storm, a dangerous condition with high fever, rapid heartbeat, and organ failure.
-Early diagnosis and treatment (medication, lifestyle changes, or surgery if needed) can prevent these complications. If you have symptoms like extreme fatigue, weight changes, or heart issues, it's best to see a doctor.. 👉 [Explore AI in Healthcare](https://www.healthcareitnews.com/news/how-ai-can-improve-patient-flow-and-hospital-operations)")
+    st.markdown("**3️⃣ Predicting Outpatient Attendance** - AI can forecast patient volume. 👉 [Explore AI in Healthcare](https://www.healthcareitnews.com/news/how-ai-can-improve-patient-flow-and-hospital-operations)")
+    st.write("""
+    AI helps healthcare providers predict outpatient attendance, allowing them to better allocate resources, manage staff, and optimize patient flow.  
+    This leads to improved patient experience and operational efficiency.
+    """)
 
 st.markdown("<hr>", unsafe_allow_html=True)  # Adding a horizontal line for separation
 
@@ -70,11 +70,11 @@ col7, col8 = st.columns(2)
 
 # Fourth image and text: image on the right (aligned to the far right)
 with col7:
-    st.markdown("**4️⃣ Bed Occupancy Prediction** - AI predicts hospital beThyroid conditions are usually not life-threatening if diagnosed and treated properly. However, severe, untreated thyroid disorders can lead to serious complications.
-
-Hypothyroidism (underactive thyroid): If left untreated, it can cause myxedema, a rare but life-threatening condition that leads to extreme fatigue, slow heart rate, and even coma.
-Hyperthyroidism (overactive thyroid): If untreated, it can lead to a thyroid storm, a dangerous condition with high fever, rapid heartbeat, and organ failure.
-Early diagnosis and treatment (medication, lifestyle changes, or surgery if needed) can prevent these complications. If you have symptoms like extreme fatigue, weight changes, or heart issues, it's best to see a doctor.d demand. 👉 [See AI's impact](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0266612)")
+    st.markdown("**4️⃣ Bed Occupancy Prediction** - AI predicts hospital bed demand. 👉 [See AI's impact](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0266612)")
+    st.write("""
+    By analyzing past data and trends, AI can predict the demand for hospital beds, enabling hospitals to plan and prepare for future occupancy.  
+    This optimizes hospital resources and reduces the strain on emergency services.
+    """)
 with col8:
     st.markdown(
         """
