@@ -29,26 +29,25 @@ st.markdown("""
     <style>
         .navbar {
             display: flex;
-            justify-content: center;
-            gap: 10px;
+            justify-content: space-evenly; /* Distributes buttons evenly */
             background-color: white;
             padding: 15px 0;
             border-radius: 10px;
         }
         .navbar a {
             text-decoration: none;
-            flex: 1;
+            flex-grow: 1; /* Ensures equal spacing */
+            text-align: center;
         }
         .navbar button {
             border: none;
             font-size: 16px;
             font-weight: bold;
             color: white;
-            padding: 14px 28px; /* Uniform padding */
+            padding: 14px 28px;
             border-radius: 10px;
             cursor: pointer;
             transition: background 0.3s ease, transform 0.3s ease;
-            text-align: center;
             background-color: #4CAF50;
             width: 100%;
             height: 50px;
@@ -57,16 +56,16 @@ st.markdown("""
             background-color: #388E3C;
             transform: scale(1.05);
         }
-        /* Increase padding for Home button */
+        /* Home button styling to match others */
         .home-btn {
-            padding: 14px 28px !important; /* Matches other buttons */
+            padding: 14px 28px !important;
         }
     </style>
 """, unsafe_allow_html=True)
 
 # Create navigation bar using Streamlit columns
 st.markdown('<div class="navbar">', unsafe_allow_html=True)
-col1, col2, col3, col4 = st.columns(4)
+col1, col2, col3, col4 = st.columns(4, gap="medium")  # Ensures equal spacing
 
 with col1:
     st.markdown('<a href="https://maintrying.streamlit.app/" target="_self">'
