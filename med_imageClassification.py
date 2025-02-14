@@ -62,7 +62,7 @@ with col1:
     st.markdown('<a href="https://maintrying.streamlit.app/" target="_blank"><button style="width: 100%; padding: 14px 24px;">🏠 Home</button></a>', unsafe_allow_html=True)
 
 with col2:
-    st.markdown('<a href="https://medsimageclassification.streamlit.app/" target="_blank"><button style="width: 100%;">🩺 Disease Prediction</button></a>', unsafe_allow_html=True)
+    st.markdown('<a href="" target="_blank"><button style="width: 100%;">🩺 Disease Prediction</button></a>', unsafe_allow_html=True)
 
 with col3:
     st.markdown('<a href="https://your-outpatient-prediction-deployment-link.com" target="_blank"><button style="width: 100%;">📅 Outpatient Prediction</button></a>', unsafe_allow_html=True)
