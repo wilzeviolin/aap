@@ -116,14 +116,14 @@ with col1:
         👉 [Learn more](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7179009/)
     """)
 with col2:
-    st.image("bgImage/diesease_prediction.jpeg", use_container_width=True)
+    st.image("bgImage/disease_prediction.jpeg", use_container_width=True)
 
 st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
 
 # 2. Medicine Image Classification
 col3, col4 = st.columns([1, 2], gap="small")
 with col3:
-    st.image("bgImage/imgae_classification.jpg", use_container_width=True)
+    st.image("bgImage/image_classification.jpg", use_container_width=True)
 with col4:
     st.markdown("""
         ### 2️⃣ Medicine Image Classification
