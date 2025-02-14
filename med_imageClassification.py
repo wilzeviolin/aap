@@ -24,7 +24,7 @@ class_labels = {
     9: 'Neozep'
 }
 
-# Custom CSS for consistent button sizes
+# Custom CSS for navbar with larger Home button
 st.markdown("""
     <style>
         .navbar {
@@ -47,9 +47,15 @@ st.markdown("""
             border-radius: 30px;
             cursor: pointer;
             transition: background 0.3s ease, transform 0.3s ease;
-            min-width: 200px;
-            display: inline-block;
             text-align: center;
+        }
+        .navbar .home-btn {
+            min-width: 240px;
+            padding: 14px 28px;
+            font-size: 20px;
+        }
+        .navbar button:not(.home-btn) {
+            min-width: 200px;
         }
         .navbar button:hover {
             background-color: #388E3C;
@@ -64,7 +70,7 @@ st.markdown('<div class="navbar">', unsafe_allow_html=True)
 st.markdown(
     """
     <a href="https://maintrying.streamlit.app/" target="_blank">
-        <button>🏠 Home</button>
+        <button class="home-btn">🏠 Home</button>
     </a>
     <a href="https://your-disease-prediction-deployment-link.com" target="_blank">
         <button>🩺 Disease Prediction</button>
