@@ -182,6 +182,10 @@ def main():
             st.write(f"### **Predicted Class:** {predicted_class}")
             st.write(f"### **Confidence:** {confidence:.2%}")
             
+            # Display warning for low confidence
+            if confidence < 0.8:
+                st.warning("⚠️ **Low Confidence Prediction:** This prediction has less than 80% confidence. Please consult a healthcare professional or pharmacist to verify this medication.")
+            
             # Display medicine information based on prediction accuracy
             st.markdown("---")
             if predicted_class == actual_class:
@@ -189,6 +193,7 @@ def main():
                 display_medicine_info(predicted_class)
             else:
                 st.error("❌ Incorrect Prediction")
+                st.warning("⚠️ **Important:** The model has misidentified this medication. Please consult a healthcare professional or pharmacist to verify any medication before use.")
                 st.write("### Actual Medicine Information:")
                 display_medicine_info(actual_class)
                 st.markdown("---")
