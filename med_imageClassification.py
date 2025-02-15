@@ -191,7 +191,7 @@ def main():
 
         # Display image
         width, _ = image.size
-        display_width = min(width, 300)
+        display_width = min(width, 500)
         st.image(image, caption="Uploaded Image", width=display_width)
         
         try:
