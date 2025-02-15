@@ -3,6 +3,9 @@ import tensorflow as tf
 import numpy as np
 from PIL import Image
 
+# Configure page layout to use full width
+st.set_page_config(layout="wide")
+
 # Load the model
 @st.cache_resource
 def load_model():
@@ -138,67 +141,73 @@ medicine_info = {
     }
 }
 
-def display_medicine_info(medicine_name):
+def display_medicine_info(medicine_name, container):
     info = medicine_info[medicine_name]
-    st.write("### 📝 Description")
-    st.write(info['description'])
-    
-    st.write("### 💊 Common Uses")
-    for use in info['uses']:
-        st.write(f"• {use}")
-    
-    st.write("### ⚠️ Important Note")
-    st.write(info['note'])
+    with container:
+        st.write("### 📝 Description")
+        st.write(info['description'])
+        
+        st.write("### 💊 Common Uses")
+        for use in info['uses']:
+            st.write(f"• {use}")
+        
+        st.write("### ⚠️ Important Note")
+        st.write(info['note'])
 
 def main():
-    page = "📸 Image Classifier"
+    st.title("📸 Medicine Image Classifier")
+    st.write("Upload an image to classify.")
     
-    if page == "📸 Image Classifier":
-        st.title("📸 Medicine Image Classifier")
-        st.write("Upload an image to classify.")
+    uploaded_file = st.file_uploader("Upload an Image", type=["jpg", "png", "jpeg"])
+    
+    if uploaded_file is not None:
+        image = Image.open(uploaded_file).convert('RGB')
+        st.image(image, caption="Uploaded Image", use_container_width=True)
         
-        uploaded_file = st.file_uploader("Upload an Image", type=["jpg", "png", "jpeg"])
+        # Extract actual class from filename
+        actual_class = uploaded_file.name.split("_")[0]
         
-        if uploaded_file is not None:
-            image = Image.open(uploaded_file).convert('RGB')
-            st.image(image, caption="Uploaded Image", use_container_width=True)
+        # Preprocess the image
+        image = image.resize((224, 224))
+        image = np.array(image) / 255.0
+        image = np.expand_dims(image, axis=0)
+        
+        # Make prediction
+        prediction = model.predict(image)
+        predicted_class = class_labels[np.argmax(prediction)]
+        confidence = np.max(prediction)
+        
+        # Show results
+        st.subheader("🔍 Classification Result")
+        st.write(f"### **Actual Class:** {actual_class}")
+        st.write(f"### **Predicted Class:** {predicted_class}")
+        st.write(f"### **Confidence:** {confidence:.2%}")
+        
+        # Display medicine information based on prediction accuracy
+        st.markdown("---")
+        if predicted_class == actual_class:
+            st.success("✅ Correct Prediction!")
+            # Only show low confidence warning when prediction is correct but confidence is low
+            if confidence < 0.7:
+                st.warning("⚠️ **Low Confidence Prediction:** While the prediction is correct, the confidence is less than 70%. It's advisable to consult a healthcare professional or pharmacist to verify this medication.")
+            display_medicine_info(predicted_class, st)
+        else:
+            st.error("❌ Incorrect Prediction")
+            # Show incorrect prediction warning
+            st.warning("⚠️ **Important:** The model has misidentified this medication. Please consult a healthcare professional or pharmacist to verify any medication before use.")
             
-            # Extract actual class from filename
-            actual_class = uploaded_file.name.split("_")[0]
+            # Create two columns for side-by-side display
+            col1, col2 = st.columns(2)
             
-            # Preprocess the image
-            image = image.resize((224, 224))
-            image = np.array(image) / 255.0
-            image = np.expand_dims(image, axis=0)
+            # Display actual medicine info in left column
+            with col1:
+                st.markdown(f"### Actual Medicine: {actual_class}")
+                display_medicine_info(actual_class, col1)
             
-            # Make prediction
-            prediction = model.predict(image)
-            predicted_class = class_labels[np.argmax(prediction)]
-            confidence = np.max(prediction)
-            
-            # Show results
-            st.subheader("🔍 Classification Result")
-            st.write(f"### **Actual Class:** {actual_class}")
-            st.write(f"### **Predicted Class:** {predicted_class}")
-            st.write(f"### **Confidence:** {confidence:.2%}")
-            
-            # Display medicine information based on prediction accuracy
-            st.markdown("---")
-            if predicted_class == actual_class:
-                st.success("✅ Correct Prediction!")
-                # Only show low confidence warning when prediction is correct but confidence is low
-                if confidence < 0.7:
-                    st.warning("‼️ **Low Confidence Prediction:** While the prediction is correct, the confidence is less than 70%. It's advisable to consult a healthcare professional or pharmacist to verify this medication.")
-                display_medicine_info(predicted_class)
-            else:
-                st.error("❌ Incorrect Prediction")
-                # Show incorrect prediction warning only when prediction is wrong
-                st.warning("‼️ **Important:** The model has misidentified this medication. Please consult a healthcare professional or pharmacist to verify any medication before use.")
-                st.write("### Actual Medicine Information:")
-                display_medicine_info(actual_class)
-                st.markdown("---")
-                st.write("### Wrong Predicted Medicine Information:")
-                display_medicine_info(predicted_class)
+            # Display wrong predicted medicine info in right column
+            with col2:
+                st.markdown(f"### Wrong Predicted Medicine: {predicted_class}")
+                display_medicine_info(predicted_class, col2)
 
 if __name__ == "__main__":
     main()
